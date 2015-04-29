@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<channel>
+		<title>Counting infinities</title>
+		<description>Some infinities of my life</description>		
+		<link>http://black-perl.me</link>
+		<atom:link href="http://black-perl.me/feed.xml" rel="self" type="application/rss+xml" />
+		
+			<item>
+				<title>The Mailman journey for GSoC&#39;15</title>
+				        
+				
+					<description>&lt;p&gt;The race for getting a GSoC project has started yet again. Tomorrow, will be the proposal submission deadline. I have also submitted a proposal for porting the &lt;a href=&quot;https://launchpad.net/mailman.client&quot;&gt;mailman.client&lt;/a&gt; to JavaScript.   &lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 26 Mar 2015 00:00:00 +0530</pubDate>
+				<link>http://black-perl.me/mailman-journey</link>
+				<guid isPermaLink="true">http://black-perl.me/mailman-journey</guid>
+			</item>
+		
+			<item>
+				<title>Hi there !!</title>
+				        
+				
+					<description>&lt;p&gt;I had been thinking to put a blog up for the past few months but everytime I got stuck with projects, examinations etc. Huh !
+&lt;br /&gt;&lt;br /&gt;
+Now, fest season is going on at IIT-BHU,Varanasi and we guys have all day free. I guess it’s the best time to go for a blog :D&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Wed, 25 Mar 2015 00:00:00 +0530</pubDate>
+				<link>http://black-perl.me/hello-world</link>
+				<guid isPermaLink="true">http://black-perl.me/hello-world</guid>
+			</item>
+		
+	</channel>
+</rss>
