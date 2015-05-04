@@ -76,21 +76,21 @@
 <br /></p>
 
 <h2 id="span-classgreen-abstract-span"><span class="green"> Abstract </span></h2>
-<p>The project aims to port mailman.client to JavaScript, providing an API familiar to Node.js/IO.js developers, and finally ship it as a npm package for easy installation in a Node.js environment. The other main objectives would be to write a strong test suite for the developed Mailman JavaScript Client and writing API usage as well as design documentation for facilitating future work.</p>
+<p>The project aims to port <strong>mailman.client</strong> to <strong>JavaScript</strong>, providing an API familiar to <strong>Node.js/IO.js</strong> developers, and finally ship it as a npm package for easy installation in a Node.js environment. The other main objectives would be to write a strong test suite for the developed Mailman JavaScript Client and writing API usage as well as design documentation for facilitating future work.</p>
 
 <h2 id="span-classgreen-project-proposal-information-span"><span class="green"> Project Proposal Information </span></h2>
 
 <h3 id="proposal-title----writing-the-mailmanclient-in-javascript">Proposal Title :   Writing the mailman.client in JavaScript</h3>
 
-<p>Mailman’s REST interface exposes a set of endpoints to talk to Mailman-core. mailman.client library is covering a subset of these endpoints. It is the client library that talks to core’s REST API through HTTP. Right now mailman.client is the official client in Python but it would be nice to have it in JavaScript as well so that Mailman could be integrated with Node.js and IO.js. </p>
+<p>Mailman’s REST interface exposes <strong>a set of endpoints</strong> to talk to <strong>mailman-core</strong>. <strong>mailman.client</strong> library is covering a <strong>subset</strong> of these endpoints. It is the client library that talks to core’s REST API through HTTP. Right now <strong>mailman.client</strong> is the official client in <strong>Python</strong> but it would be nice to have it in <strong>JavaScript</strong> as well so that Mailman could be integrated with <strong>Node.js</strong> and <strong>IO.js</strong>. </p>
 
 <h3 id="why-a-seperate-js-client-">Why a seperate JS client ?</h3>
 
-<p>Using the mailman.client one can only build Python applications that talks to Mailman-core. The port will facilitate developing apps using Node.js/IO.js as well. The new client can come handy in situations where real-time statistics/accounting dashboard apps for Mailman are desired.</p>
+<p>Using the <strong>mailman.client</strong> one can only build <strong>Python **applications that talks to **mailman-core</strong>. The port will facilitate developing apps using <strong>Node.js/IO.js</strong> as well. The new client can come handy in situations where real-time statistics/accounting dashboard apps for Mailman are desired.</p>
 
 <h3 id="proposal-detailed-description-">Proposal Detailed Description :</h3>
 
-<p>The problem of writing JavaScript client for the mailman.client which is currently in Python is not a simple translation problem. There are several design challenges that need to be studied and worked out through the project. In the initial phase I plan to prepare a design plan and do a preliminary study of the existing mailman.client features and codebase.</p>
+<p>The problem of writing <strong>JavaScript client</strong> for the <strong>mailman.client</strong> which is currently in <strong>Python</strong> is not a simple translation problem. There are several design challenges that need to be studied and worked out through the project. In the initial phase I plan to prepare a design plan and do a preliminary study of the existing <strong>mailman.client</strong> features and codebase.</p>
 
 <p><span class="red"> <strong>[a]: Deciding the API extent</strong> </span></p>
 
