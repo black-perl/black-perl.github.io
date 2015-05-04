@@ -593,3 +593,7 @@ footer {
   color: #009999; }
 
 /* Literal.Number.Integer.Long */
+/* Emoji style forcing */
+.emoji {
+  margin-bottom: 0;
+  display: inline; }

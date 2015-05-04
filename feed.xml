@@ -7,10 +7,23 @@
 		<atom:link href="http://black-perl.me/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>My GSoC proposal -- mailman.client written in JS</title>
+				        
+				
+					<description>&lt;p&gt;This post will walk you through my proposal GSoC’15 @ GNU Mailman. Along with, it introduces the Mailman project and it’s parts&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Mon, 04 May 2015 00:00:00 +0530</pubDate>
+				<link>http://black-perl.me/gsoc15-proposal-mailman.client-written-in-js</link>
+				<guid isPermaLink="true">http://black-perl.me/gsoc15-proposal-mailman.client-written-in-js</guid>
+			</item>
+		
+			<item>
 				<title>A list of awesome trackers</title>
 				        
 				
-					<description>&lt;p&gt; A curated list of some awesome trackers. Keep torrenting &lt;img style=&quot;width:20px;height:20px;display:inline;margin-bottom:0;&quot; src=&quot;http://www.emoji-cheat-sheet.com/graphics/emojis/beer.png&quot; alt=&quot;beer-emoji&quot; /&gt;
+					<description>&lt;p&gt; A curated list of some awesome trackers. Keep torrenting :beer: 
 &lt;/p&gt;
 
 </description>

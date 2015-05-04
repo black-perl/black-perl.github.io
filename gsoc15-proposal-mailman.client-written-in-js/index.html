@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+	<title>Ankush Sharma | Counting infinities</title>
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,400italic|Signika:700,300,400,600' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+	  <a href="/about.html">About Me</a>
+	  <a href="mailto:ankprashar@gmail.com">Contact</a>
+	  <a href="https://github.com/black-perl"> @ GitHub</a>
+	  <a href="http://stackoverflow.com/users/2679770/black-perl"> @ StackOverflow </a>
+	  <a href="http://in.linkedin.com/in/ankushsharma003"> @ LinkedIn </a>
+	  <a href="https://launchpad.net/~black-perl"> @ LaunchPad </a>
+	</div>
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a href="#" id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+	    <div id="header">
+	<a href="">
+		<img src="/img/humming-bird.png" alt="Ankush Sharma">
+	  <h1> Counting infinities </h1>
+	</a>
+</div>
+
+
+    <!-- Main content -->
+	  <div id="container">
+
+	  	<div id="post-page">
+	<h2>My GSoC proposal -- mailman.client written in JS</h2>		
+	<span class="by-line">04 May 2015</span>
+	<div class="content">
+
+		<p>This post will walk you through my proposal GSoC’15 @ GNU Mailman. Along with, it introduces the Mailman project and it’s parts</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p><a href="http://list.org">Mailman</a> consists of the following modules:</p>
+
+<ul>
+  <li><a href="https://launchpad.net/mailman">mailman-core</a>: The core mailman module. It offers command line tools for using mailman. It has a REST server interface too, with so you can use http requests for talking with <strong>mailman-core</strong>.</li>
+  <li><a href="https://launchpad.net/postorius">postorius</a>: The Mailman web UI to do management tasks like CRUD operations on lists, domains, list_members, list_moderators etc. It depends upon <strong>mailman.client</strong> for talking with <strong>mailman-core</strong>.</li>
+  <li><a href="https://launchpad.net/mailman.client">mailman.client</a>: It talks to <strong>mailman-core</strong>’s REST server and provides API to <strong>postorius</strong> to do various operations. </li>
+  <li><a href="https://github.com/hyperkitty/hyperkitty">hyperkitty</a>: A web interface to access GNU Mailman v3 archives.</li>
+</ul>
+
+<h2 id="abstract">Abstract</h2>
+<p>The project aims to port mailman.client to JavaScript, providing an API familiar to Node.js/IO.js developers, and finally ship it as a npm package for easy installation in a Node.js environment. The other main objectives would be to write a strong test suite for the developed Mailman JavaScript Client and writing API usage as well as design documentation for facilitating future work.</p>
+
+<h2 id="project-proposal-information-">Project Proposal Information :</h2>
+
+<h3 id="proposal-title----writing-the-mailmanclient-in-javascript">Proposal Title :   Writing the mailman.client in JavaScript</h3>
+
+<p>Mailman’s REST interface exposes a set of endpoints to talk to Mailman-core. mailman.client library is covering a subset of these endpoints. It is the client library that talks to core’s REST API through HTTP. Right now mailman.client is the official client in Python but it would be nice to have it in JavaScript as well so that Mailman could be integrated with Node.js and IO.js. </p>
+
+<h3 id="why-a-seperate-js-client-">Why a seperate JS client ?</h3>
+
+<p>Using the mailman.client one can only build Python applications that talks to Mailman-core. The port will facilitate developing apps using Node.js/IO.js as well. The new client can come handy in situations where real-time statistics/accounting dashboard apps for Mailman are desired.</p>
+
+<h3 id="proposal-detailed-description-">Proposal Detailed Description :</h3>
+
+<p>The problem of writing JavaScript client for the mailman.client which is currently in Python is not a simple translation problem. There are several design challenges that need to be studied and worked out through the project. In the initial phase I plan to prepare a design plan and do a preliminary study of the existing mailman.client features and codebase.</p>
+
+<p><strong>[1]: Deciding the API extent</strong></p>
+
+<p><strong>mailman.client</strong> does not cover all the REST API endpoints and functionalities that can be achieved using the REST interface as indicated by some issues:</p>
+
+<p>https://bugs.launchpad.net/mailman/+bug/1418276</p>
+
+<p>So it would be good to identify the set of functionalities/endpoints to cover within the new client library and the best option would be to start with understanding what the <strong>current</strong> client offers and what’s missing.</p>
+
+<p>Also, the current client have hard-coded REST API endpoints in it’s code. This would break the mailman.client if someone decides to change the REST API endpoints in future. The API users should have some sort of easy way to configure these endpoints without having a look at the code. The best option that I can think of now would be to use a config file ( INI, YAML or JSON ) for defining these endpoints or to have a command line utility for the user to change endpoints if required. <strong>It is obvious that these endpoints aren’t changed quite frequently but from my point of view it is a good software practice to have such flexibility.</strong></p>
+
+<p><strong>[2]: Deciding API styles and usage</strong></p>
+
+<ul>
+  <li>The developed API would be friendly to Node.js developers and not like the existing Python API because we already have a Python client, but the functionality offered will be the same as discussed earlier.</li>
+  <li>As the new library is to be used with Node.js, it would be required to have <strong>callbacks</strong> and <strong>promises</strong> style syntax. Because:
+..* It would provide surety that the requested data from the server-side is written to the client-side and now you can do further processing on it. 
+..* This can be achieved by writing the request making methods <strong>get()</strong> , <strong>post()</strong> ,  <strong>put()</strong> , etc. in <strong>asynchronous</strong> way because they will pose blocking calls; so that callback function can be invoked after these request making functions have got the required data from the server side. For eg.  </li>
+</ul>
+
+<script src="https://gist.github.com/black-perl/2a7a4f5dd0633a1963a4.js"> </script>
+
+<ul>
+  <li>The API can offer a <strong>query builder-style</strong> syntax to let you craft the final <strong>request object</strong> by <strong>chaining filters</strong> and other <strong>methods</strong>. The chaining methods are <strong>non-blocking</strong> of course. The final request object will make request to the Mailman’s REST endpoints and it will be a <strong>blocking</strong> call. For example the following can be used to get the <strong>members of a list</strong> :  </li>
+</ul>
+
+<script src="https://gist.github.com/black-perl/190da71c294aeb876ddd.js"> </script>
+
+<p><strong>Note :</strong> The order of chaining may seem ambiguous at first as <code>client.auth().lists()</code> would be preferred over <code>client.lists().auth()</code> but I have mentioned the latter in context with the <strong>Proof of Concept module [0]</strong> for this project. There is no doubt to use the former while developing the actual client or <strong>authentication</strong> can be made implicit when a <strong>username and password</strong> is supplied during <strong>client instantiation</strong>.</p>
+
+<p><strong>[3]: Brainstorming features</strong></p>
+
+<p>The current client does require knowledge of some variables such as list_ids’ or email addresses  before framing urls with them and making a request to the REST server. The mailman.client does not offer any validation for these variables because Postorius does this for it. It would be great if some validation checks can be integrated within the new client for these variables and generate proper error messages using definition of these variables in the Mailman-core’s dictionary because there are situations where the REST server gives 404 messages when an invalid list_id or email address is supplied. Using client side validation in such situations will make things more meaningful. More information on the implementation and usage aspects is here:   https://github.com/black-perl/mailman-cli/tree/master/readups/client-side-validation
+Some useful client side filtering support can be added, for eg:
+Fetching lists matching a given list name.
+List with most members etc.
+More information on the implementation is here:  https://github.com/black-perl/mailman-cli/tree/master/readups/client-side-filtering 
+Upon successful implementation of the above features in the new mailman client, feature-requests for these can be added to the tracker of the mailman.client so that these can be integrated in it also.</p>
+
+<p>I have implemented some of the following ideas in a Proof of Concept module. [0]</p>
+
+<p>Request handling via ‘state’ transfer:
+The idea is to have a base request handling class that will provide methods to do dispatching of the request eg. get(), post(), put() , etc. and handling of responses i.e pagination support etc. It will also have methods to build the final URI to request from a state object passed to it. Let’s call this class RequestA.</p>
+
+<p>Further this class can be extended for adding support for client side filters if someone wants to implement. Let’s call it RequestB.</p>
+
+<p>It would be good to handle the same category of endpoints by a single class. Like a ListRequest class for handling /lists/* endpoints</p>
+
+<p>Another idea is to make other classes such as ListsRequest i.e those created to offer the functionality of  _List , _Domains etc. as in mailman.client to inherit RequestB with the exception of the main Client class which will be the entry point for passing the state object. This will enable request dispatching directly from any ListsRequest instance using inherited post(), get() etc.</p>
+
+<p>These all classes share a state object which gets its initial value from the user while instantiating a Client instance. This state object is then passed through and gets modified multiple times during chaining calls and is finally used to extract the information like endpoint to request, auth variables etc. Using this information a request is made. For example take the following query:</p>
+
+<pre><code>   client.lists().listId("list_1.domain1.org").filter(“count”,"25”).filter(“pages”,"1")
+</code></pre>
+
+<p>WHAT to port and WHAT not to:
+A drilled summary of what functionality is needed to port and what don’t is here : https://github.com/black-perl/mailman-cli/tree/master/readups/mailman.client-python-port-to-js .</p>
+
+<p>Python classes and JavaScript prototypes :
+It is required to have object oriented structure for the client library as suggested by the current Python implementation of mailman.client. Since, JavaScript is classless and is a prototype based language, so the constructor functions [1] can be used to serve the purpose of classes and the prototype chain for inheritance. [2] Also, it is required to write getters and setters for duplicating the effect of Python’s @property. [3]  Description of how I used these techniques in my Proof of Concept is here : https://github.com/black-perl/mailman-cli/tree/master/readups/js-prototype-setters-getters-python-classes-property</p>
+
+<p>Vanilla JS with a request library and a promise library will be sufficient. As, Node.js will automatically take care of most of the browser differences.</p>
+
+<p>-&gt; These are few popular choices for a request library : </p>
+
+<p>Request ( https://github.com/request/request )
+Superagent ( http://visionmedia.github.io/superagent/ )
+-&gt; And few good choices for a promise library :</p>
+
+<p>Bluebird ( https://github.com/petkaantonov/bluebird )
+Promise ( https://www.npmjs.com/package/promise )
+Q ( https://github.com/kriskowal/q )
+*  I have made use of Superagent in my Proof of Concept for this project <a href="Implementation phase and design">4</a> because it offers call-chaining style syntax like JQuery’s Ajax calls and I am pretty used to it. But Request is more popular than Superagent in the Node.js community. So, I would propose to use Request.</p>
+
+<ul>
+  <li>I have made use of Bluebird in my Proof of Concept for this project <a href="Preparing proper toolkit">5</a>.  Some comparisons on promise libraries suggest Bluebird to be the best on the basis of performance of such promise libraries. These are few of them : </li>
+</ul>
+
+<p>http://complexitymaze.com/2014/03/03/javascript-promises-a-comparison-of-libraries/#contentleft</p>
+
+<p>https://news.ycombinator.com/item?id=6494622</p>
+
+<p>Another promise library that can be used is es6-promise ( https://github.com/jakearchibald/es6-promise ) as pointed out by Florian on the mailing list.</p>
+
+<p>Writing legible code:
+A good idea is to use JSCS <a href="Code Quality">6</a> to force code styling and JSHint [7] to lint code for potential errors and problems in the code.</p>
+
+<p>These are good community driven tools helpful in writing legible JavaScript and are being used for projects like JQuery, Grunt, AngularJS etc. <a href="Code Quality">8</a></p>
+
+<p>Writing less complex code:
+Decreasing the time complexity of the code can help in increasing the performance of the library. Well, Plato [9] is a great tool to do code visualization, static analysis and complexity.</p>
+
+<p>Running plato over the code gives a rough idea of the following:</p>
+
+<ul>
+  <li>
+    <p>Maintainability of the code</p>
+  </li>
+  <li>
+    <p>Lines of code</p>
+  </li>
+  <li>
+    <p>Estimated errors in implementation ( based on the Halstead complexity measures [10] )</p>
+  </li>
+  <li>
+    <p>Lint errors ( based on the results of JsHint [7] )</p>
+  </li>
+</ul>
+
+<p>Once the parts of the code causing issues are identified, they can be improved.</p>
+
+<p>Testing:
+Testing is one of the main goals of this project as code quality is directly reflected from the code coverage. Here, it becomes more important as we are writing everything from scratch. The choice of testing tools is equally important.</p>
+
+<p>Some good framework options are : Mocha and Jasmine</p>
+
+<p>Jasmine [14] is a full fledge BDD testing framework while Mocha [11] is more of a test runner supporting different types of interfaces BDD, TDD etc. Since, Mocha does not come with an assertion library, it is required to use an external assertion library like Chai.js [12] or Should.js [16] or any other. Also, Sinon [13] is a very popular library which provides spies, stubs, and mocks for JavaScript ; and is frequently used with Mocha.</p>
+
+<p>The comparisons between Jasmine and Mocha suggests Mocha to be a good choice because it lets you write more cleaner asynchronous code compared to Jasmine. Jasmine on the other hand, requires an external plugin [19] to work with Node. Mocha also offers much more flexibility of assertion styles and mocking. A few comparisons between Mocha and Jasmine :</p>
+
+<p>http://www.techtalkdc.com/which-javascript-test-library-should-you-use-qunit-vs-jasmine-vs-mocha/</p>
+
+<p>http://thejsguy.com/2015/01/12/jasmine-vs-mocha-chai-and-sinon.html</p>
+
+<ul>
+  <li>I have integrated a few tests using Mocha and Chai as an assertion library in my Proof of Concept module and found it to fit in very nice ! A report on these : https://github.com/black-perl/mailman-cli/tree/master/readups/testing-with-mocha</li>
+</ul>
+
+<p>[7] Npm and IO.js integration</p>
+
+<p>Since, the library is aimed to be served as a Node.js and IO.js package. The library must be turned into a npm package by creating a package.json file and registering the module at npm registry. This Gist contains all the steps related to creation and updating of a npm module :  https://gist.github.com/coolaj86/1318304</p>
+
+<p>Also most of the npm packages are compatible with IO.js as suggested by the IO.js website [15]  but some of the dependencies may cause compatibility issues. In these cases such tools can prove to be helpful : https://github.com/mderazon/iojs-dep-check .</p>
+
+<p>So, the set of libraries we choose while porting mailman.client to JavaScript should play well with both Node.js and IO.js.</p>
+
+<ul>
+  <li>I have turned the Proof of Concept module into a npm package. Link : https://www.npmjs.com/package/mailman-cli </li>
+</ul>
+
+<p>[8] Documentation</p>
+
+<p>Inline commenting can be used to generate documentation for various classes and methods in the library by making use of great tools like JSDoc [17]. Further, there are quite awesome themes available like this: http://davidshimjs.github.io/jaguarjs/doc/</p>
+
+<p>Similarly, YUIDoc [18] can be used to serve the purpose of generating documentation from inline comments. But it is required to have a separate usage documentation for the API users and it is equally important to work on it parallel to working on writing the library.</p>
+
+<ul>
+  <li>I have done a lot of inline commenting in my Proof of Concept module for this purpose [0]</li>
+</ul>
+
+<p>Pre-GSoC GNU Mailman Project Involvement :</p>
+
+<p>I believed that it is important to become a GNU Mailman contributor ahead of the GSoC proposal deadline. This has allowed me to get acquainted with the extensive codebase, inner workings of the project and helped me produce what I believe is a solid project plan in this proposal. The following are some of my contributions till date:</p>
+
+<p>Bug Found #1425359 : 500 error code shown by postorius instead of 409 error code.
+Link : https://bugs.launchpad.net/mailman/+bug/1425359</p>
+
+<p>Bug status : Marked High</p>
+
+<p>Pull request status: Merged</p>
+
+<p>Pull request Link: https://code.launchpad.net/~black-perl/mailman/fix-mailman/+merge/251709</p>
+
+<p>Bug Found #1428169 : client not present in the scope of the interpreter invoked by doing python manage.py mmclient.
+Link : https://bugs.launchpad.net/postorius/+bug/1428169</p>
+
+<p>Pull request status : Merged</p>
+
+<p>Link : https://code.launchpad.net/~black-perl/postorius/fix-postorius/+merge/251761</p>
+
+<p>Bug Found #1428543 : Typos in the postorius code which potentially can lead to unwanted code cascading problems.
+Link : https://bugs.launchpad.net/postorius/+bug/1428543</p>
+
+<p>Pull request link : https://code.launchpad.net/~black-perl/postorius/fix-postorius-typo/+merge/251879</p>
+
+<p>Pull request status : Merged</p>
+
+<p>Bug Found #1429366 : Anatomy of list ids does not keep with that of urls causes some REST end points to return 404 always.
+Link : https://bugs.launchpad.net/mailman/+bug/1429366</p>
+
+<p>Pull request links:  https://code.launchpad.net/~black-perl/mailman/handling-special-chars-in-email/+merge/252867                                                                                         https://code.launchpad.net/~black-perl/mailman.client/handling-special-chars-in-email/+merge/252899</p>
+
+<p>Developed a bootstrap script for setting Mailman up for development. Link : https://github.com/black-perl/mmdev_bootstrap</p>
+
+<p>Proposed Timeline and Milestones :</p>
+
+<p>Given that I am already a Mailman contributor, I am up to speed with things and look forward to start this project as soon as acceptance is known. I have already got a good idea on the working of the existing mailman.client while working on a pull request for the bug #1429366 and writing a proof of concept thing has already given me a start on this.</p>
+
+<p>After studying the current implementation of mailman.client, it is clear to have the functionality offered by the classes  _Page, _Settings, _Preferences etc. before trying to have any other functionality because they are directly or indirectly used by other core classes such as _List, _Domain, _User etc. So, a good idea would be to find such classes and implement them first.</p>
+
+<p>Keeping this in the mind, the proposed timeline would be like this :</p>
+
+<p>*Note : The names of the classes used in the milestones follows directly from the implementation section as discussed earlier in the proposal.</p>
+
+<p>27/4/2015 - 24/5/2015: Community Bonding Period</p>
+
+<p>Take all of the choices of libraries in account and choose best of them to serve the purpose. Get my hands dirty on these.
+Read some JavaScript coding guidelines and best practices to follow.
+Setup development environment with the selected toolkit.
+25/5/2015 - 7/6/2015: Actual Coding period starts</p>
+
+<p>Implementing the request making functionality by writing RequestA and RequestB classes by using some client side filters which can prove to be good assets by discussing with mentor(s).
+Write tests for these classes.
+8/6/2015 - 26/6/2015: Mid-Term Evaluation</p>
+
+<p>Implement the core Client class along with classes analogous to _Page, _Settings, _Preferences etc. as discussed above.
+Implement the ListsRequest and DomainsRequest classes. ( classes analogous to _Lists and _Domains respectively )
+Write test suite parallely.
+3/7/2015 - 16/8/2015</p>
+
+<p>Implement rest of the functionality i.e classes analogous to _Member, _User, etc.
+Write remaining test suite.
+Generate documentation of classes and methods in the library by making use of documentation generation tools as discussed earlier.
+17/8/2015 - 18/8/2015: Preparing for End-Term Evaluation</p>
+
+<p>Do code linting and performance tuning using tools described earlier.
+Final test suite touch ups to increase code coverage.
+Detailed documentation for the usage API.
+Making the library a npm package and publish it to the npm registry.
+After 18/8/2015 : Adding more functionality to the library ( Optional )</p>
+
+<p>There may be some functionality added to mailman.client during the GSoC period. So, the goal would be add this functionality in the new library.
+Further improvements or additions to the documentation.</p>
+
+<p>Proof of Concept module :</p>
+
+<p>I have written a npm package that prototypes some of the expected functionality of the library aimed to be developed through this project. I have taken full care of code quality and expects it to serve as a proof of implementation of my proposed ideas.</p>
+
+<p>Link : https://github.com/black-perl/mailman-cli</p>
+
+
+		
+	</div>
+</div>
+
+
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>@2015 - Ankush Sharma</span></footer>
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+
+
+	</div>
+</body>
+</html>
