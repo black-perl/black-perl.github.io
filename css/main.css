@@ -597,3 +597,9 @@ footer {
 .emoji {
   margin-bottom: 0;
   display: inline; }
+
+.green {
+  color: #18A524; }
+
+.red {
+  color: #922; }
