@@ -113,8 +113,11 @@
 <ul>
   <li>The developed API would be friendly to Node.js developers and not like the existing Python API because we already have a Python client, but the functionality offered will be the same as discussed earlier.</li>
   <li>As the new library is to be used with Node.js, it would be required to have <strong>callbacks</strong> and <strong>promises</strong> style syntax. Because:
-..* It would provide surety that the requested data from the server-side is written to the client-side and now you can do further processing on it. 
-..* This can be achieved by writing the request making methods <strong>get()</strong> , <strong>post()</strong> ,  <strong>put()</strong> , etc. in <strong>asynchronous</strong> way because they will pose blocking calls; so that callback function can be invoked after these request making functions have got the required data from the server side. For eg.  </li>
+    <ul>
+      <li>It would provide surety that the requested data from the server-side is written to the client-side and now you can do further processing on it. </li>
+      <li>This can be achieved by writing the request making methods <strong>get()</strong> , <strong>post()</strong> ,  <strong>put()</strong> , etc. in <strong>asynchronous</strong> way because they will pose blocking calls; so that callback function can be invoked after these request making functions have got the required data from the server side. For eg.  </li>
+    </ul>
+  </li>
 </ul>
 
 <p><br /><script src="https://gist.github.com/black-perl/2a7a4f5dd0633a1963a4.js"> </script></p>
