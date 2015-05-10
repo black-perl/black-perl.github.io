@@ -335,7 +335,9 @@ footer {
   padding: 0.6667em 0; }
 
 .highlight {
-  background: #ffffff; }
+  background: #ffffff;
+  font-size: 85%;
+  font-family: consolas, console; }
 
 .highlight .c {
   color: #999988;
