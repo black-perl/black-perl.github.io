@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<!-- favicon -->
+	<link rel="shortcut icon" type="img/ico" href="../img/favicon.ico"/>
+	<!-- SEO tags -->
+	<meta name="description" content="Ankush-Sharma-blog">
+	<meta name="keywords" content="black-perl,Ankush-Sharma,IIT-BHU,GNU-Mailman,gsoc15,couting-infinities,black_perl">
+	<meta name="author" content="Ankush Sharma,IIT BHU,black-perl">
+	<!-- title -->
+	<title>Ankush Sharma | Counting infinities</title>
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,400italic|Signika:700,300,400,600' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+	  <a href="/ankush-sharma.html">About Me</a>
+	  <a href="mailto:ankprashar@gmail.com">Contact</a>
+	  <a href="https://github.com/black-perl"> @ GitHub</a>
+	  <a href="http://stackoverflow.com/users/2679770/black-perl"> @ StackOverflow </a>
+	  <a href="http://in.linkedin.com/in/ankushsharma003"> @ LinkedIn </a>
+	  <a href="https://launchpad.net/~black-perl"> @ LaunchPad </a>
+	</div>
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a href="#" id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+	    <div id="header">
+	<a href="">
+		<img src="/img/humming-bird.png" alt="Ankush Sharma">
+	  <h1> Counting infinities </h1>
+	</a>
+</div>
+
+
+    <!-- Main content -->
+	  <div id="container">
+
+	  	<div id="post-page">
+	<h2>Demystifying JavaScript Prototypes - I</h2>		
+	<span class="by-line">11 May 2015</span>
+	<div class="content">
+
+		<p>Every JavaScript developer should know about <em>Prototypes</em> and must use it as a part of their JS arsenal. The concept of <em>Prototypes</em> is one of the core concepts of JavaScript.
+<br />
+<br />
+This article aims to explain JavaScript’s prototype in layman terms. If you don’t understand JavaScript’s prototype after reading this blog post, please ask questions in the comments below. I will personally answer all questions.</p>
+
+<h3 id="why-prototypes-">Why prototypes ?</h3>
+
+<p>And, the answer is to achieve <strong>inheritance</strong>. So, JavaScript is a <em>prototyped</em> language in order to facilitate <strong>inheritance</strong>. Inheritance facilitates <strong>code-reusability</strong>.
+Programming languages uses one of the following techniques for achieving inheritance:       </p>
+
+<ul>
+  <li>Classical                                                   </li>
+  <li>Prototypal   </li>
+</ul>
+
+<p><br />
+<span class="red"> <strong>Classical inheritance :</strong> </span>                                                                                  <br />
+In <strong>classical inheritance</strong>, the programmer writes a class, which is used to <strong>instantiate</strong> an object. Multiple objects can be instantiated from the same class, so you have code in one place which describes several objects in your program.                      Classes can then be organized into a <strong>hierarchy</strong>, furthering <strong>code reuse</strong>. More general code is stored in a higher-level class, from which lower level classes inherit. This means that an object is sharing code with other objects of the same class, as well as with its parent classes.</p>
+
+<p><span class="red"> <strong>Prototypal inheritance :</strong> </span>                                                                                 <br />
+In the <strong>prototypal inheritance</strong> form, objects <strong>inherit directly</strong> from other objects. There are <strong>no</strong> such <strong>classes</strong>. If you want an object, you just write an object. But code reuse is still a valuable thing, so objects are allowed to be linked together in a hierarchy.In javascript, every object has a secret link to the object which created it, forming a <strong>chain</strong> and this chain is termed as <em>object prototype chain</em>. 
+<br />
+This is how a property lookup is achieved along the chain:</p>
+
+<blockquote>
+  <p>When an object is asked for a <strong>property</strong> that it does not have, 
+its parent object is asked… continually <strong>up the chain</strong> until 
+the property is found or until the <strong>root</strong> object is reached.</p>
+</blockquote>
+
+<p>A bit confused <img class="emoji" title="confused" alt="confused" src="https://github.global.ssl.fastly.net/images/icons/emoji/confused.png" height="20" width="20" align="absmiddle" />. Don’t worry just get yourself confortable; we will see this by an example in a later section.</p>
+
+<h3 id="prototypenbspnbsp-vs-nbsp-proto"><code>prototype</code>   v/s   <code>__proto__</code></h3>
+
+<p>Each JavaScript object will always have these two properties i.e <code>prototype</code> and <code>__proto__</code>. Keep in mind that these are also <strong>objects</strong> i.e <code>&lt;object&gt;.prototype</code> is also an object.
+<br />
+Here, <code>&lt;object&gt;</code> refers to the object whose property we are trying to access using the dot operator.
+<br />
+<br /></p>
+
+<p><span class="green" style="font-size:200%;font-weight:bold"> &lt;object&gt;.prototype </span>
+<br />                              <br />
+Let us start by understanding about <strong>prototype</strong> first. This makes most sense for a <strong>constructor</strong> function using which we are going to create objects with the application of <strong>new</strong> operator.</p>
+
+<blockquote>
+  <p><strong>prototype</strong> property of a <strong>constructor function</strong> which is an 
+object itself, keeps the information about the properties which 
+are going to be inherited by the objects instantiated from this 
+constructor function. The default value of prototype is <strong>empty</strong>. </p>
+</blockquote>
+
+<p>Consider the example:
+<br /></p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Defining a constructor class</span>
+<span class="o">&gt;&gt;</span> <span class="kd">function</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+<span class="p">...</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">...</span> <span class="p">};</span>
+
+<span class="c1">// Default value of prototype is empty</span>
+<span class="o">&gt;&gt;</span> <span class="nx">Vehicle</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="p">{}</span>
+
+<span class="c1">// Adding a method</span>
+<span class="o">&gt;&gt;</span> <span class="nx">Vehicle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">run</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="p">...</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;I am running&#39;</span><span class="p">);</span>
+<span class="p">...</span> <span class="p">};</span>
+
+<span class="o">&gt;&gt;</span> <span class="nx">Vehicle</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="p">{</span> <span class="nx">run</span><span class="o">:</span> <span class="p">[</span><span class="nb">Function</span><span class="p">]</span> <span class="p">}</span>
+
+<span class="c1">// Adding another method</span>
+<span class="o">&gt;&gt;</span> <span class="nx">Vehicle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">fuel</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>
+<span class="p">...</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;I need fuel&#39;</span><span class="p">);</span>
+<span class="p">...</span> <span class="p">}</span>
+
+<span class="o">&gt;&gt;</span> <span class="nx">Vehicle</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="p">{</span> <span class="nx">run</span><span class="o">:</span> <span class="p">[</span><span class="nb">Function</span><span class="p">],</span> <span class="nx">fuel</span><span class="o">:</span> <span class="p">[</span><span class="nb">Function</span><span class="p">]</span> <span class="p">}</span>
+
+<span class="c1">// The Vehicle object does not have these methods but the object</span>
+<span class="c1">// inherting from it will have</span>
+<span class="o">&gt;&gt;</span> <span class="nx">Vehicle</span><span class="p">.</span><span class="nx">fuel</span><span class="p">()</span>
+<span class="nx">TypeError</span><span class="o">:</span> <span class="nb">Object</span> <span class="kd">function</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+<span class="p">}</span> <span class="nx">has</span> <span class="nx">no</span> <span class="nx">method</span> <span class="s1">&#39;fuel&#39;</span></code></pre></div>
+
+<p>So, the <strong>prototype</strong> of an object bundles up the properties which are <strong>to be installed</strong> into the <strong>child</strong> objects.
+<br />
+<br /></p>
+
+<p><span class="green" style="font-size:200%;font-weight:bold"> &lt;object&gt;.__proto__ </span>
+<br />                            <br />
+The <strong>__proto__</strong> of an object refers to the <strong>prototype</strong> of the <strong>parent</strong> constructor function.</p>
+
+<blockquote>
+  <p><strong>prototype</strong> property of a <strong>constructor function</strong> is 
+installed into the <strong>__proto__</strong> property of the instantiated object.</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// Instantiating an object</span>
+<span class="o">&gt;&gt;</span> <span class="kd">var</span> <span class="nx">myCar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Vehicle</span><span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">);</span>
+
+<span class="c1">// The __proto__ of myCar</span>
+<span class="o">&gt;&gt;</span> <span class="nx">myCar</span><span class="p">.</span><span class="nx">__proto__</span>
+<span class="p">{</span> <span class="nx">run</span><span class="o">:</span> <span class="p">[</span><span class="nb">Function</span><span class="p">],</span> <span class="nx">fuel</span><span class="o">:</span> <span class="p">[</span><span class="nb">Function</span><span class="p">]</span> <span class="p">}</span>
+
+<span class="c1">// Yep, they are equal</span>
+<span class="o">&gt;&gt;</span> <span class="nx">myCar</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">==</span> <span class="nx">Vehicle</span><span class="p">.</span><span class="nx">prototype</span>
+<span class="kc">true</span></code></pre></div>
+
+<p>And, the <strong>__proto__</strong> tells the properties which are <strong>installed</strong> into the created object.
+<br />
+<br /></p>
+
+<h3 id="summing-up">Summing Up</h3>
+<p>So, we put all the properties which we want the instantiated objects to inherit into the <strong>prototype</strong> property of the <strong>constructor</strong> function and this information is reflected in the <strong>__proto__</strong> of the created objects. This is the <strong>link</strong> between <strong>child</strong> and <strong>parent</strong> objects in JavaScript.</p>
+
+<p>This post covered the basics of how inheritance works in JavaScript.I will be continuing my next blog post on more advanced stuff covering <em>prototype chain</em> and its <em>propagation</em>. </p>
+
+<p>Stay in touch <img class="emoji" title="wink" alt="wink" src="https://github.global.ssl.fastly.net/images/icons/emoji/wink.png" height="20" width="20" align="absmiddle" /> and feel free to ask questions !</p>
+
+
+		
+	</div>
+
+	<br/>
+	<br/>
+	<br/>
+	<!-- Comment thread -->
+	<div id="disqus_thread"></div>
+</div>
+
+
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>@2015 - Ankush Sharma</span></footer>
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+
+
+      <script type="text/javascript">
+        // disqus comments
+        var disqus_shortname  = 'black-perl', // test-me-blog
+        disqus_identifier = '2015-05-11-javascript-prototypes.md',
+        disqus_url        = 'http://black-perl.me/javascript-prototypes'
+        ;
+        (function() {
+        var load = function(src){
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = src;
+        var e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e);
+        };
+        load('//' + disqus_shortname + '.disqus.com/count.js');
+        if (document.getElementById('disqus_thread')) {
+        load('//' + disqus_shortname + '.disqus.com/embed.js');
+        }
+        })();
+      </script>
+
+	</div>
+</body>
+</html>
