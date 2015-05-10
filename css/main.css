@@ -334,13 +334,8 @@ footer {
   text-align: center;
   padding: 0.6667em 0; }
 
-/*
- * A Github stylesheet to highlight code snippet
- * https://github.com/mojombo/tpw/blob/master/css/syntax.css
- */
-.lineno {
-  color: #bdbdbd;
-  margin-right: 1em; }
+.highlight {
+  background: #ffffff; }
 
 .highlight .c {
   color: #999988;
@@ -593,6 +588,20 @@ footer {
   color: #009999; }
 
 /* Literal.Number.Integer.Long */
+/* Make line numbers unselectable: excludes line numbers from copy-paste user ops */
+.highlight .lineno {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none; }
+
+.lineno::-moz-selection {
+  background-color: transparent; }
+
+/* Mozilla specific */
+.lineno::selection {
+  background-color: transparent; }
+
+/* Other major browsers */
 /* Emoji style forcing */
 .emoji {
   margin-bottom: 0;
