@@ -7,6 +7,22 @@
 		<atom:link href="http://black-perl.me/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Demystifying JavaScript Prototypes - I</title>
+				        
+				
+					<description>&lt;p&gt;Every JavaScript developer should know about &lt;em&gt;Prototypes&lt;/em&gt; and must use it as a part of their JS arsenal. The concept of &lt;em&gt;Prototypes&lt;/em&gt; is one of the core concepts of JavaScript.
+&lt;br /&gt;
+&lt;br /&gt;
+This article aims to explain JavaScript’s prototype in layman terms. If you don’t understand JavaScript’s prototype after reading this blog post, please ask questions in the comments below. I will personally answer all questions.&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Mon, 11 May 2015 00:00:00 +0530</pubDate>
+				<link>http://black-perl.me/javascript-prototypes</link>
+				<guid isPermaLink="true">http://black-perl.me/javascript-prototypes</guid>
+			</item>
+		
+			<item>
 				<title>My GSoC proposal -- mailman.client written in JS</title>
 				        
 				
