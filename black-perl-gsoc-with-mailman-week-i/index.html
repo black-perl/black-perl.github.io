@@ -64,7 +64,7 @@
 <br /> 
 So, I started by writing the <strong>BaseRequest</strong> class, the <em>class</em> keyword sounds weird to me when I am dabbling with JS but I can’t help using it as <em>class</em> is the best keyword to describe heirarchy in your code. 
 <br />
-<strong>BaseRequest</strong> is the <em>base</em> request making module. It talks directly to the REST api exposed by the Mailman core i.e it sits at the bottom of the abstraction layer that <a href="https://gitlab.com/black-perl/mailman-client.js">mailman-client.js</a>
+<strong>BaseRequest</strong> is the <em>base</em> request making module. It talks directly to the REST API exposed by the Mailman core i.e it sits at the bottom of the abstraction layer that <a href="https://gitlab.com/black-perl/mailman-client.js">mailman-client.js</a> adds while communicating to core.
 <br />
 <br /></p>
 
@@ -77,7 +77,6 @@ i.e. we want something like this:</p>
     <code class="javascript">
     &gt;&gt; client.get()
     &gt;&gt; client.post()
-    &gt;&gt; client.put()
     &gt;&gt; client.put()
     .
     .

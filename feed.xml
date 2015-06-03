@@ -14,7 +14,7 @@
 &lt;br /&gt; 
 So, I started by writing the &lt;strong&gt;BaseRequest&lt;/strong&gt; class, the &lt;em&gt;class&lt;/em&gt; keyword sounds weird to me when I am dabbling with JS but I can’t help using it as &lt;em&gt;class&lt;/em&gt; is the best keyword to describe heirarchy in your code. 
 &lt;br /&gt;
-&lt;strong&gt;BaseRequest&lt;/strong&gt; is the &lt;em&gt;base&lt;/em&gt; request making module. It talks directly to the REST api exposed by the Mailman core i.e it sits at the bottom of the abstraction layer that &lt;a href=&quot;https://gitlab.com/black-perl/mailman-client.js&quot;&gt;mailman-client.js&lt;/a&gt;
+&lt;strong&gt;BaseRequest&lt;/strong&gt; is the &lt;em&gt;base&lt;/em&gt; request making module. It talks directly to the REST API exposed by the Mailman core i.e it sits at the bottom of the abstraction layer that &lt;a href=&quot;https://gitlab.com/black-perl/mailman-client.js&quot;&gt;mailman-client.js&lt;/a&gt; adds while communicating to core.
 &lt;br /&gt;
 &lt;br /&gt;&lt;/p&gt;
 
