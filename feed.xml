@@ -7,6 +7,25 @@
 		<atom:link href="http://black-perl.me/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>GSOC @ GNU MAILMAN WEEK-1</title>
+				        
+				
+					<description>&lt;p&gt;Writing things from scratch is hard, isn’t it. You have to think a lot whether to setup all the things first and then actually start doing coding. But I preferred the latter on the former. If you are unaware of what I am working on, you can checkout &lt;a href=&quot;http://black-perl.me/gsoc15-proposal-mailman.client-written-in-js/&quot;&gt;here&lt;/a&gt;.
+&lt;br /&gt; 
+So, I started by writing the &lt;strong&gt;BaseRequest&lt;/strong&gt; class, the &lt;em&gt;class&lt;/em&gt; keyword sounds weird to me when I am dabbling with JS but I can’t help using it as &lt;em&gt;class&lt;/em&gt; is the best keyword to describe heirarchy in your code. 
+&lt;br /&gt;
+&lt;strong&gt;BaseRequest&lt;/strong&gt; is the &lt;em&gt;base&lt;/em&gt; request making module. It talks directly to the REST api exposed by the Mailman core i.e it sits at the bottom of the abstraction layer that &lt;a href=&quot;https://gitlab.com/black-perl/mailman-client.js&quot;&gt;mailman-client.js&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Tue, 02 Jun 2015 00:00:00 +0530</pubDate>
+				<link>http://black-perl.me/black-perl-gsoc-with-mailman-week-i</link>
+				<guid isPermaLink="true">http://black-perl.me/black-perl-gsoc-with-mailman-week-i</guid>
+			</item>
+		
+			<item>
 				<title>Demystifying JavaScript Prototypes - I</title>
 				        
 				

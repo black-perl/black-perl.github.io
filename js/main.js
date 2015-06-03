@@ -29,3 +29,8 @@ function menuClick() {
 menuClick();
 
 
+/* Highlight JS */
+hljs.tabReplace = '	';
+hljs.initHighlightingOnLoad();
+
+
