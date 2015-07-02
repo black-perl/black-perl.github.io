@@ -7,6 +7,21 @@
 		<atom:link href="http://black-perl.me/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>GSoC&#39;15 - GNU Mailman mid term report</title>
+				        
+				
+					<description>&lt;p&gt;Tomorrow marks the mid of the GSoC’15 journey. The journey till now was full of roadblocks and surpries for me.
+At the same time, I learned many aysnchronous programming techniques while working with NodeJS and about different testing strategies. It would have not be possible about great mentors, &lt;em&gt;@florianf&lt;/em&gt; and &lt;em&gt;@maxking&lt;/em&gt;. 
+Here are the details of what I’ve achieved so far : &lt;/p&gt;
+
+</description>
+				
+				<pubDate>Thu, 02 Jul 2015 00:00:00 +0530</pubDate>
+				<link>http://black-perl.me/black-perl-gsoc-with-mailman-mid-term-report</link>
+				<guid isPermaLink="true">http://black-perl.me/black-perl-gsoc-with-mailman-mid-term-report</guid>
+			</item>
+		
+			<item>
 				<title>GSoC&#39;15 - GNU Mailman progress report</title>
 				        
 				
