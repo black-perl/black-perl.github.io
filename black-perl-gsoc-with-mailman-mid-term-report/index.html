@@ -68,21 +68,21 @@ Here are the details of what I’ve achieved so far : </p>
 <p>These modules serves as the backbone to the project. They provide classes that are directly inherited by the classes in other modules and are responsible for providing an abstraction of connection to the mailman-core REST API server. At the same time these provides pleasant API to talk to the REST server. These modules have been fully tested and have gained more robustness over the time. </p>
 
 <h3 id="other-modules">Other modules</h3>
-<p>Then I went on to implement classes analogous to <em>_Addresses</em>, <em>_Address</em>, <em>_Preferences</em>, <em>_Settings</em>, <em>_Member</em> and <em>_User</em> as in <a href="launchpad.net/mailman.client">mailman.client</a>. These have been fully tested from the command line and working as expected. I implemented them in three phases:</p>
+<p>Then I went on to implement classes analogous to <em>_Addresses</em>,  <em>_Address</em>,  <em>_Preferences</em>,  <em>_Settings</em>,  <em>_Member</em> and <em>_User</em> as in <a href="launchpad.net/mailman.client">mailman.client</a>. These have been fully tested from the command line and working as expected. I implemented them in three phases:</p>
 
 <ul>
   <li>First I tried to cover the basic API they can offer. </li>
-  <li>Then, with discussion with mentors I decided what changes I can make to the public API to make it more user friendly. This required considerable changes in the inner implementation of the methods of the respective classes.</li>
-  <li>Finally, in the last phase I refacored the code so as to minimise the redundant logic and provide a consistent usage API to developers and the end sdk users.</li>
+  <li>Then, with discussion with mentors I decided what changes I can make to the public API to make it more user friendly. This required considerable changes to the implementation of the methods of the respective classes.</li>
+  <li>Finally, in the last phase I refactored the code so as to seperate out the redundant logic in a bunch of utility functions and to provide a consistent usage API to developers and the end sdk users.</li>
 </ul>
 
 <p><br /></p>
 
 <h3 id="current-work">Current Work</h3>
-<p>A bunch of above mentioned modules has been completely tested but due to recent refactoring tests are failing <img class="emoji" title="cold_sweat" alt="cold_sweat" src="https://github.global.ssl.fastly.net/images/icons/emoji/cold_sweat.png" height="20" width="20" align="absmiddle" />, so working on the testing part at current.</p>
+<p>A bunch of above mentioned modules has been completely unit tested but due to recent refactoring tests are failing <img class="emoji" title="cold_sweat" alt="cold_sweat" src="https://github.global.ssl.fastly.net/images/icons/emoji/cold_sweat.png" height="20" width="20" align="absmiddle" />, so working on the testing part at current.</p>
 
 <h3 id="future-work">Future work</h3>
-<p>After finishing testing I will jump on to implement the left modules <em>List</em>, <em>Domain</em>,<em>Client</em> etc. After that, I will improve the code quality by using code linting and time profiling tools. And, yeah documentation !</p>
+<p>After finishing testing I will jump on to implement the left modules <em>List</em>, <em>Domain</em>, <em>Client</em> etc. After that, I will improve the code quality by using code linting and time profiling tools. And, yeah documentation !</p>
 
 <p>Here is the repository URL if you want to give it a shot:                                              <br />
 <strong>Repo URL</strong> : <a href="https://gitlab.com/black-perl/mailman-client.js">https://gitlab.com/black-perl/mailman-client.js</a></p>
