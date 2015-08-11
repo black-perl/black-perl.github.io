@@ -7,6 +7,19 @@
 		<atom:link href="http://black-perl.me/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>GSoC&#39;15 - GNU Mailman pre-end term report</title>
+				        
+				
+					<description>&lt;p&gt;As we are reaching towards the end, the level of excitement is at all time high. Yeah, GSOC’15 program is in it’s last few days. Talking on the benefits side of this program, I found myself transformed from a JavaScript noob to a ninja :p&lt;/p&gt;
+
+</description>
+				
+				<pubDate>Tue, 11 Aug 2015 00:00:00 +0530</pubDate>
+				<link>http://black-perl.me/black-perl-gsoc-with-mailman-pre-end-term-report</link>
+				<guid isPermaLink="true">http://black-perl.me/black-perl-gsoc-with-mailman-pre-end-term-report</guid>
+			</item>
+		
+			<item>
 				<title>GSoC&#39;15 - GNU Mailman mid term report</title>
 				        
 				
