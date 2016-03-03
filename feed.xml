@@ -3,8 +3,8 @@
 	<channel>
 		<title>Counting infinities</title>
 		<description>Some infinities of my life</description>		
-		<link>http://black-perl.me</link>
-		<atom:link href="http://black-perl.me/feed.xml" rel="self" type="application/rss+xml" />
+		<link>http://black-perl.in</link>
+		<atom:link href="http://black-perl.in/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>GSoC&#39;15 - GNU Mailman pre-end term report</title>
@@ -15,8 +15,8 @@
 </description>
 				
 				<pubDate>Tue, 11 Aug 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.me/black-perl-gsoc-with-mailman-pre-end-term-report</link>
-				<guid isPermaLink="true">http://black-perl.me/black-perl-gsoc-with-mailman-pre-end-term-report</guid>
+				<link>http://black-perl.in/black-perl-gsoc-with-mailman-pre-end-term-report</link>
+				<guid isPermaLink="true">http://black-perl.in/black-perl-gsoc-with-mailman-pre-end-term-report</guid>
 			</item>
 		
 			<item>
@@ -29,8 +29,8 @@ Here are the details of what I’ve achieved so far : &lt;/p&gt;
 </description>
 				
 				<pubDate>Thu, 02 Jul 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.me/black-perl-gsoc-with-mailman-mid-term-report</link>
-				<guid isPermaLink="true">http://black-perl.me/black-perl-gsoc-with-mailman-mid-term-report</guid>
+				<link>http://black-perl.in/black-perl-gsoc-with-mailman-mid-term-report</link>
+				<guid isPermaLink="true">http://black-perl.in/black-perl-gsoc-with-mailman-mid-term-report</guid>
 			</item>
 		
 			<item>
@@ -42,15 +42,15 @@ Here are the details of what I’ve achieved so far : &lt;/p&gt;
 </description>
 				
 				<pubDate>Fri, 19 Jun 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.me/black-perl-gsoc-with-mailman-progress-report-I</link>
-				<guid isPermaLink="true">http://black-perl.me/black-perl-gsoc-with-mailman-progress-report-I</guid>
+				<link>http://black-perl.in/black-perl-gsoc-with-mailman-progress-report-I</link>
+				<guid isPermaLink="true">http://black-perl.in/black-perl-gsoc-with-mailman-progress-report-I</guid>
 			</item>
 		
 			<item>
 				<title>GSOC @ GNU MAILMAN WEEK-1</title>
 				        
 				
-					<description>&lt;p&gt;Writing things from scratch is hard, isn’t it. You have to think a lot whether to setup all the things first and then actually start doing coding. But I preferred the latter on the former. If you are unaware of what I am working on, you can checkout &lt;a href=&quot;http://black-perl.me/gsoc15-proposal-mailman.client-written-in-js/&quot;&gt;here&lt;/a&gt;.
+					<description>&lt;p&gt;Writing things from scratch is hard, isn’t it. You have to think a lot whether to setup all the things first and then actually start doing coding. But I preferred the latter on the former. If you are unaware of what I am working on, you can checkout &lt;a href=&quot;http://black-perl.in/gsoc15-proposal-mailman.client-written-in-js/&quot;&gt;here&lt;/a&gt;.
 &lt;br /&gt; 
 So, I started by writing the &lt;strong&gt;BaseRequest&lt;/strong&gt; class, the &lt;em&gt;class&lt;/em&gt; keyword sounds weird to me when I am dabbling with JS but I can’t help using it as &lt;em&gt;class&lt;/em&gt; is the best keyword to describe heirarchy in your code. 
 &lt;br /&gt;
@@ -61,8 +61,8 @@ So, I started by writing the &lt;strong&gt;BaseRequest&lt;/strong&gt; class, the
 </description>
 				
 				<pubDate>Tue, 02 Jun 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.me/black-perl-gsoc-with-mailman-week-i</link>
-				<guid isPermaLink="true">http://black-perl.me/black-perl-gsoc-with-mailman-week-i</guid>
+				<link>http://black-perl.in/black-perl-gsoc-with-mailman-week-i</link>
+				<guid isPermaLink="true">http://black-perl.in/black-perl-gsoc-with-mailman-week-i</guid>
 			</item>
 		
 			<item>
@@ -77,8 +77,8 @@ This article aims to explain JavaScript’s prototype in layman terms. If you do
 </description>
 				
 				<pubDate>Mon, 11 May 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.me/javascript-prototypes</link>
-				<guid isPermaLink="true">http://black-perl.me/javascript-prototypes</guid>
+				<link>http://black-perl.in/javascript-prototypes</link>
+				<guid isPermaLink="true">http://black-perl.in/javascript-prototypes</guid>
 			</item>
 		
 			<item>
@@ -90,8 +90,8 @@ This article aims to explain JavaScript’s prototype in layman terms. If you do
 </description>
 				
 				<pubDate>Mon, 04 May 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.me/gsoc15-proposal-mailman.client-written-in-js</link>
-				<guid isPermaLink="true">http://black-perl.me/gsoc15-proposal-mailman.client-written-in-js</guid>
+				<link>http://black-perl.in/gsoc15-proposal-mailman.client-written-in-js</link>
+				<guid isPermaLink="true">http://black-perl.in/gsoc15-proposal-mailman.client-written-in-js</guid>
 			</item>
 		
 			<item>
@@ -104,8 +104,8 @@ This article aims to explain JavaScript’s prototype in layman terms. If you do
 </description>
 				
 				<pubDate>Sun, 03 May 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.me/awesome-trackers</link>
-				<guid isPermaLink="true">http://black-perl.me/awesome-trackers</guid>
+				<link>http://black-perl.in/awesome-trackers</link>
+				<guid isPermaLink="true">http://black-perl.in/awesome-trackers</guid>
 			</item>
 		
 			<item>
@@ -118,8 +118,8 @@ The list of accepted projects got published on the &lt;a href=&quot;https://www.
 </description>
 				
 				<pubDate>Wed, 29 Apr 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.me/mailman-gsoc-proposal-accepted</link>
-				<guid isPermaLink="true">http://black-perl.me/mailman-gsoc-proposal-accepted</guid>
+				<link>http://black-perl.in/mailman-gsoc-proposal-accepted</link>
+				<guid isPermaLink="true">http://black-perl.in/mailman-gsoc-proposal-accepted</guid>
 			</item>
 		
 			<item>
@@ -131,8 +131,8 @@ The list of accepted projects got published on the &lt;a href=&quot;https://www.
 </description>
 				
 				<pubDate>Thu, 26 Mar 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.me/mailman-journey</link>
-				<guid isPermaLink="true">http://black-perl.me/mailman-journey</guid>
+				<link>http://black-perl.in/mailman-journey</link>
+				<guid isPermaLink="true">http://black-perl.in/mailman-journey</guid>
 			</item>
 		
 			<item>
@@ -146,8 +146,8 @@ Now, fest season is going on at IIT-BHU,Varanasi and we guys have all day free. 
 </description>
 				
 				<pubDate>Wed, 25 Mar 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.me/hello-world</link>
-				<guid isPermaLink="true">http://black-perl.me/hello-world</guid>
+				<link>http://black-perl.in/hello-world</link>
+				<guid isPermaLink="true">http://black-perl.in/hello-world</guid>
 			</item>
 		
 	</channel>
