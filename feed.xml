@@ -7,6 +7,19 @@
 		<atom:link href="http://black-perl.in/feed.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Yet again, GSoC&#39;16 with the syslog-ng team</title>
+				        
+				
+					<description>&lt;p&gt;w00t, Yeah I am overwhelmed :blush:. I applied to &lt;a href=&quot;https://syslog-ng.org/&quot;&gt;syslog-ng&lt;/a&gt;, a software tool for log management for this year &lt;a href=&quot;summerofcode.withgoogle.com&quot;&gt;Google Summer of Code&lt;/a&gt; program and got selected. &lt;/p&gt;
+
+</description>
+				
+				<pubDate>Wed, 18 May 2016 00:00:00 +0530</pubDate>
+				<link>http://black-perl.in/black-perl-gsoc-with-syslog-ng</link>
+				<guid isPermaLink="true">http://black-perl.in/black-perl-gsoc-with-syslog-ng</guid>
+			</item>
+		
+			<item>
 				<title>GSoC&#39;15 - GNU Mailman pre-end term report</title>
 				        
 				
@@ -133,21 +146,6 @@ The list of accepted projects got published on the &lt;a href=&quot;https://www.
 				<pubDate>Thu, 26 Mar 2015 00:00:00 +0530</pubDate>
 				<link>http://black-perl.in/mailman-journey</link>
 				<guid isPermaLink="true">http://black-perl.in/mailman-journey</guid>
-			</item>
-		
-			<item>
-				<title>Hi there !!</title>
-				        
-				
-					<description>&lt;p&gt;I had been thinking to put a blog up for the past few months but everytime I got stuck with projects, examinations etc. Huh !
-&lt;br /&gt;&lt;br /&gt;
-Now, fest season is going on at IIT-BHU,Varanasi and we guys have all day free. I guess it’s the best time to go for a blog :D&lt;/p&gt;
-
-</description>
-				
-				<pubDate>Wed, 25 Mar 2015 00:00:00 +0530</pubDate>
-				<link>http://black-perl.in/hello-world</link>
-				<guid isPermaLink="true">http://black-perl.in/hello-world</guid>
 			</item>
 		
 	</channel>
