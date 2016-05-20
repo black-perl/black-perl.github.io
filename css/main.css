@@ -618,6 +618,16 @@ footer {
 code {
   font-size: 70%; }
 
+#social-links {
+  margin: 1px 0 1px 0; }
+
+#social-links li {
+  display: inline-block;
+  margin-right: 2%; }
+
+#tagline {
+  color: #005E8A; }
+
 .hljs {
   display: block;
   overflow-x: auto;
