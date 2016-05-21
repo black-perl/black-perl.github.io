@@ -679,6 +679,12 @@ code {
 .tag:hover::after {
   border-left-color: crimson; }
 
+.share-buttons {
+  display: inline;
+  height: 5%;
+  width: 5%;
+  margin-right: 2%; }
+
 .hljs {
   display: block;
   overflow-x: auto;
