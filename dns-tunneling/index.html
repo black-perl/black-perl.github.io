@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<!-- favicon -->
+	<link rel="shortcut icon" type="img/ico" href="../img/favicon.ico"/>
+	<!-- Feed link -->
+	<link href="/feed.xml/" rel='alternate' type='application/atom+xml'>
+	<!-- SEO tags -->
+	<meta name="description" content="Ankush-Sharma-blog">
+	<meta name="keywords" content="black-perl,Ankush-Sharma,IIT-BHU,GNU-Mailman,gsoc15,couting-infinities,black_perl">
+	<meta name="author" content="Ankush Sharma,IIT BHU,black-perl">
+	<!-- title -->
+	<title>Ankush Sharma | Counting infinities</title>
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,400italic|Signika:700,300,400,600' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+	  <a href="/ankush-sharma/">About Me</a>
+	  <a href="mailto:ankcodes@gmail.com">Contact</a>
+	  <a href="/tags/"> Tags </a>
+      <a href="/archives/"> Archives </a>
+	</div>
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a href="#" id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+	    <div id="header">
+	<a href="">
+		<img src="/img/humming-bird.png" alt="Ankush Sharma">
+	</a>
+    <h1> Counting infinities </h1>
+    <h3> 
+        <i id="tagline"> Thoughts of a random guy on life experiences, programming and music 
+        </i>
+    </h3>
+    <br/>
+    <!--   Social media icons --> 
+    <ul id="social-links">
+        <li>
+            <a href="https://www.facebook.com/ankcodes">
+                <img href="/img/social/social-1_round-facebook.svg" type="Facebook">
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/black-perl">
+                <img src="/img/social/social-1_round-github.svg" type="Github">
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/ankcodes">
+                <img src="/img/social/social-1_round-twitter.svg" type="Twitter">
+            </a>
+        </li>
+        <li>
+            <a href="https://in.linkedin.com/in/ankcodes">
+                <img src="/img/social/social-1_round-linkedin.svg" type="LinkedIn">
+            </a>
+        </li>
+        <li>
+            <a href="skype:ank_sharma_3?userinfo">
+                <img src="/img/social/social-1_round-skype.svg" type="skype">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/ankcodes/">
+                <img src="/img/social/social-1_round-instagram.svg" type="ankcodes">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/channel/UCnZ7eXLX7zPFhbU7Cmzr6Uw">
+                <img src="/img/social/social-1_round-youtube.svg" type="Youtube">
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+    <!-- Main content -->
+	  <div id="container">
+
+	  	<div id="post-page">
+	<!-- Adding tags -->
+	<ul class="tags">
+		
+			<li>
+				<a href="/tags#dns-tunneling" class="tag">dns-tunneling</a>
+			</li>
+		
+			<li>
+				<a href="/tags#pentesting" class="tag">pentesting</a>
+			</li>
+		
+	</ul>
+	<h2>Tunnel your way to free internet</h2>		
+	<span class="by-line">06 Jul 2016</span>
+	<div class="content">
+
+		<p>This post is only for educational purposes and use the workaround described here any your own risk !</p>
+
+<p>Though I have a premium account with my broadband provider and I can browse the internet by logging in. But out of curiousity, I am always searching for a workout through which I can avoid the login part and use the internet off the records. This situation is pretty common. You find yourself at places like public Wi-Fi zones, McDonalds, Hotel Rooms etc. with your Wi-Fi card detecting open networks. You immediately jump on to connect to it and fire a URL into your browser and Er? What’s this:</p>
+
+<p><img src="https://exekias.me/wp-content/uploads/2011/08/login.png" alt="Captive Portal" /></p>
+
+<p>A login screen appears no matter what URL you try to access. These are called as <a href="https://en.wikipedia.org/wiki/Captive_portal">Captive Portals</a>. What you can do now ? Spend a few bucks ? <img class="emoji" title="sweat" alt="sweat" src="https://github.global.ssl.fastly.net/images/icons/emoji/sweat.png" height="20" width="20" align="absmiddle" /> Eh, can’t I bypass this? And, the answer is yes <img class="emoji" title="wink" alt="wink" src="https://github.global.ssl.fastly.net/images/icons/emoji/wink.png" height="20" width="20" align="absmiddle" /> </p>
+
+<p>The whole process breaks down to the following steps:</p>
+
+<ul>
+  <li>Check how vulnerable your network is</li>
+  <li>Appying the hack</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="vulnerability-testing">Vulnerability testing</h2>
+<p><br />
+I have a wireless broadband connection. The wireless signal is captured by an <a href="https://www.deliberant.com/apc-propeller-5">APC propeller</a> and then I am provided an ethernet cable to plug into my machine. The APC is generally provided after <strong>factory reset</strong> and serves as a router itself. 
+I logged off my user account and made the following observations:</p>
+
+<p>I cannot ping a webserver.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ping example.com
+PING example.com <span class="o">(</span>93.184.216.34<span class="o">)</span> 56<span class="o">(</span>84<span class="o">)</span> bytes of data.
+From 103.206.248.193 <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> Destination Net Prohibited
+From 103.206.248.193 <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">2</span> Destination Net Prohibited
+From 103.206.248.193 <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> Destination Net Prohibited</code></pre></div>
+
+<p>Here one thing you should notice that the reply 
+is from <code>103.206.248.193</code>. This is the <a href="https://en.wikipedia.org/wiki/Name_server">DNS Server</a> used by my broadband provider. I tried pinging the same but no avail. The DNS queries are <strong>fowarded</strong> by another <em>server</em>. Now I need to find this <em>mysterious server</em>. So, one this is sure for now, <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol">ICMP</a> packet transmission is not allowed. So, I cannot do ICMP tunneling.</p>
+
+<p>I further tried resolving a domain name and it worked like charm. Note that <em>pinging</em> and <em>resolving</em> are not the same things !</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>nslookup example.com
+Server:     127.0.1.1
+Address:    127.0.1.1#53
+
+Non-authoritative answer:
+Name:   example.com
+Address: 93.184.216.34</code></pre></div>
+
+<p>Now, you should know that the <a href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS</a> protocol runs over the <a href="https://en.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a> protocol. So, I suspected that <strong>maybe</strong> UDP packets transmission is allowed since DNS is resolving fine. So, I used <code>netcat</code> to run a echo check over an <a href="https://en.wikipedia.org/wiki/Virtual_private_network">VPN</a> server running over UDP(port 53).</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">echo</span> -e <span class="s2">&quot;\x38\x01\x00\x00\x00\x00\x00\x00\x00&quot;</span> <span class="p">|</span> timeout <span class="m">10</span> nc -u 176.126.237.217 <span class="m">53</span> <span class="p">|</span> cat -v
+<span class="c"># No-response</span></code></pre></div>
+
+<p>Eish ? UDP packets are also blocked too. So, I cannot connect to a VPN service running over UDP :/ So, here we are cut with the options. But wait, we can still resolve DNS queries, hell yeah ! So, we need to find a way to craft the DNS query packets to carry the <a href="https://en.wikipedia.org/wiki/Transmission_Control_Protocol">TCP</a> payload (which is blocked by default). And, this evil <em>abuse</em> of the DNS protocol is called as <strong>DNS Tunneling</strong> It’s not evil for us, though <img class="emoji" title="wink" alt="wink" src="https://github.global.ssl.fastly.net/images/icons/emoji/wink.png" height="20" width="20" align="absmiddle" /></p>
+
+<h3 id="finding-the-mysterious-server">Finding the <em>mysterious server</em></h3>
+<p><br />
+Well, this step is not required for establishing the tunnel. But there is no harm in finding it. This can be easily found by doing a newtork scan by <code>arp-scan</code> tool. </p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>arp-scan -I eth0 --localnet
+Interface: eth0, datalink <span class="nb">type</span>: EN10MB <span class="o">(</span>Ethernet<span class="o">)</span>
+Starting arp-scan 1.8.1 with <span class="m">256</span> hosts <span class="o">(</span>http://www.nta-monitor.com/tools/arp-scan/<span class="o">)</span>
+192.168.2.66    00:19:3b:08:78:b6   Wilibox Deliberant Group LLC
+
+<span class="m">1</span> packets received by filter, <span class="m">0</span> packets dropped by kernel
+Ending arp-scan 1.8.1: <span class="m">256</span> hosts scanned in 1.384 seconds <span class="o">(</span>184.97 hosts/sec<span class="o">)</span>. <span class="m">1</span> responded</code></pre></div>
+
+<p>You can see <code>192.168.2.66</code> is on the network and it’s the APC router which is indicated by the manufacturer details. Just to make sure it is, I logged into its admin interface using the default credentials by checking the manufacturer website. As I said earlier they did a factory reset of the APC. In my case, as the manufacturer is <a href="http://deliberant.com">Deliberant</a> and the default credentials are known to be<code>admin:admin01</code>. And, the following confirms it:</p>
+
+<p><img src="../img/dns-tunneling/deliberant_dns.png" alt="Deliberannt Router" />
+<br /></p>
+
+<h2 id="applying-the-hack">Applying the hack</h2>
+<p><br />
+Personally, I don’t like the term hack ! but I’ll cope with it ;) For doing DNS tunneling, you need to understand how this is going to work. So, basically when you browse the internet you <em>request</em> info and a <em>response</em> is provided to you. But here I can make only <em>DNS requests</em>, neither <em>TCP</em>, <em>UDP</em>, <em>ICMP</em> etc.
+Under the hood, I need to <em>hide</em> the request payload into DNS packets.</p>
+
+<ul>
+  <li>I will craft a DNS packet carrying <em>request</em> payload and send it.</li>
+  <li>A DNS server will <em>decode</em> this payload for me, fetch the <em>response</em> and <em>encode</em> it back to the DNS packet and finally return the packet. </li>
+</ul>
+
+<p><br />
+Astonishing, isn’t it ? It will be appear as we are making only DNS queries to the middle parties as we are encapsulating things in a canny way. Probably now, you must have sensed that we need someone on the other end to answer these <em>crafted DNS queries</em> for us, yeah we need our own <em>DNS server</em> !</p>
+
+<h3 id="setup-requirements">Setup requirements</h3>
+
+<ul>
+  <li>A registered domain. In my case, I will be using : <code>black-perl.in</code>. You can register a free domain with services like <a href="http://www.dot.tk/">dot.tk</a> etc.</li>
+  <li>A server with a public IP not running any DNS services ( check that port <code>53</code> ). I am using <a href="https://www.digitalocean.com/">Digital Ocean</a> for this, and this is my referral <a href="https://m.do.co/c/8c7957d9515d">link</a>, in case your’e interested in setting up one for you !
+<br />
+<br /></li>
+</ul>
+
+<p>Now, you should know the basics of <a href="https://blog.hubspot.com/insiders/domain-name-management">Domain Management</a> and types of <a href="http://www.pcnames.com/articles/what-are-dns-records">DNS records</a>. Google a bit, and come back here later on ! We will be needing a <a href="https://en.wikipedia.org/wiki/Subdomain">subdomain</a> delegated to our nameserver. Let’s set this up:</p>
+
+<ul>
+  <li>In my case the subdomain is <code>hack.black-perl.in</code> and the namserver domain is <code>dns.black-perl.in</code>. </li>
+  <li>Add an <code>A record</code> for <code>dns.black-perl.in</code> to point to your public server IP address.</li>
+  <li>Add a <code>NS record</code> for subzone <code>hack.black-perl.in</code> pointing to <code>dns.black-perl.in</code>.</li>
+</ul>
+
+<p><br />
+What it means? If somebody query for <code>&lt;some-string&gt;.hack.black-perl.in</code> , then these queries are answered by our <em>canning</em> nameserver <code>dns.black-perl.in</code>.</p>
+
+<p>Let’s move forward, we talked about encoding/decoding payloads. It’s PITA to implement this functionality, but we won’t! There’s a piece of open source software out there called as <a href="https://github.com/yarrick/iodine">Iodine</a>. We need to do the following:</p>
+
+<ul>
+  <li>
+    <h4 id="server-end-">Server end :</h4>
+  </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>iodined -f -c -P pass -n &lt;server-ip&gt; 10.0.0.1 hack.black-perl.in</code></pre></div>
+
+<p>Pass in your server IP and subdomain created earlier.
+Here, <code>-f</code> makes the Iodine server daemon to run in foreground and  <code>-P</code> is used to provide a password string that the client is going to provide while connecting. <code>10.0.0.1</code> is the other end of the tunnel interface to be created. The client(our machine) will be having <code>10.0.0.2</code>.</p>
+
+<ul>
+  <li>
+    <h3 id="client-end">Client end:</h3>
+  </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>iodine -f -P pass hack.black-perl.in
+   .
+   .
+   .
+Connection setup <span class="nb">complete</span>, transmitting data.</code></pre></div>
+
+<p>Upon successful connection, run <code>ifconfig</code> and you will observer a tunnel <code>dns0</code> is created.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">dns0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+          inet addr:10.0.0.2  P-t-P:10.0.0.2  Mask:255.255.255.224
+          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1130  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:500 
+          RX bytes:0 <span class="o">(</span>0.0 B<span class="o">)</span>  TX bytes:0 <span class="o">(</span>0.0 B<span class="o">)</span></code></pre></div>
+
+<p>Now, let’s create a <a href="https://en.wikipedia.org/wiki/SOCKS">SOCKS</a> proxy for using this tunnel.</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ssh -D <span class="m">8080</span> user@10.0.0.1</code></pre></div>
+
+<p>Now, set the proxy to be <code>127.0.0.1</code> with port <code>8080</code> and type <code>Socks5</code> and viola ! you are done.</p>
+
+<p><strong>Note:</strong> The speed obtained is very less and this type of connections can mostly be used to open a SSH shell or browsing text based sites. I myself get around <code>5 KBps</code> speed and managed to open the <a href="http://geohot.com">website</a> of the IPhone jailbreak inventor guy George Hotz.</p>
+
+		
+	</div>
+
+	<br/>
+
+	<p class = "share-page"> <b> Share this post: </b> </p>
+
+	<div class="share-page">
+	    <a href="https://twitter.com/intent/tweet?text=Tunnel your way to free internet&url=http://black-perl.in/dns-tunneling&via=_imankush&related=_imankush" rel="nofollow" target="_blank" title="Share on Twitter">
+	    	<img class="share-buttons" src="/img/social/twitter_share.png" alt="twitter share button">
+	    </a>
+	    <a href="https://facebook.com/sharer.php?u=http://black-perl.in/dns-tunneling" rel="nofollow" target="_blank" title="Share on Facebook">
+	    	<img class="share-buttons" src="/img/social/facebook_share.png" alt="facebook share button">
+	    </a>
+	    <a href="https://plus.google.com/share?url=http://black-perl.in/dns-tunneling" rel="nofollow" target="_blank" title="Share on Google+">
+	    	<img class="share-buttons" src="/img/social/googleplus_share.png" alt="googleplus share button">
+	    </a>
+	</div>
+
+	<br/>
+	<!-- Comment thread -->
+	<div id="disqus_thread"></div>
+</div>
+
+
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>@2015-2016 - Ankush Sharma</span></footer>
+
+	    <!-- Script -->
+      <!-- Hightlight.js -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<!-- Custom JS -->
+<script src="/js/main.js"></script> 
+
+
+      <script type="text/javascript">
+        // disqus comments
+        var disqus_shortname  = 'black-perl', // test-me-blog
+        disqus_identifier = '2016-07-06-dns-tunneling.md',
+        disqus_url        = 'http://black-perl.in/dns-tunneling'
+        ;
+        (function() {
+        var load = function(src){
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = src;
+        var e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e);
+        };
+        load('//' + disqus_shortname + '.disqus.com/count.js');
+        if (document.getElementById('disqus_thread')) {
+        load('//' + disqus_shortname + '.disqus.com/embed.js');
+        }
+        })();
+        // google analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62827211-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+
+	</div>
+</body>
+</html>
