@@ -177,7 +177,7 @@ Starting arp-scan 1.8.1 with <span class="m">256</span> hosts <span class="o">(<
 <span class="m">1</span> packets received by filter, <span class="m">0</span> packets dropped by kernel
 Ending arp-scan 1.8.1: <span class="m">256</span> hosts scanned in 1.384 seconds <span class="o">(</span>184.97 hosts/sec<span class="o">)</span>. <span class="m">1</span> responded</code></pre></div>
 
-<p>You can see <code>192.168.2.66</code> is on the network and it’s the APC router which is indicated by the manufacturer details. Just to make sure it is, I logged into its admin interface using the default credentials by checking the manufacturer website. As I said earlier they did a factory reset of the APC. In my case, as the manufacturer is <a href="http://deliberant.com">Deliberant</a> and the default credentials are known to be<code>admin:admin01</code>. And, the following confirms it:</p>
+<p>You can see <code>192.168.2.66</code> is on the network and it’s the APC router(in your case this may be any other router) which is indicated by the manufacturer details. Just to make sure it is, I logged into its admin interface using the default credentials by checking the manufacturer website. As I said earlier they did a factory reset of the APC. In my case, as the manufacturer is <a href="http://deliberant.com">Deliberant</a> and the default credentials are known to be<code>admin:admin01</code>. And, the following confirms it:</p>
 
 <p><img src="../img/dns-tunneling/deliberant_dns.png" alt="Deliberannt Router" />
 <br /></p>
@@ -234,13 +234,13 @@ Here, <code>-f</code> makes the Iodine server daemon to run in foreground and  <
   </li>
 </ul>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>iodine -f -P pass hack.black-perl.in
-   .
-   .
-   .
-Connection setup <span class="nb">complete</span>, transmitting data.</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>iodine -f -P pass 192.168.2.66 hack.black-perl.in
+   .  .
+   .  .
+   .  .
+  Connection setup <span class="nb">complete</span>, transmitting data.</code></pre></div>
 
-<p>Upon successful connection, run <code>ifconfig</code> and you will observe a tunnel <code>dns0</code> is created.</p>
+<p>You can skip <code>192.168.2.66</code>(mysterious server we found before) from the above command. This is basically the DNS we are tunneling through. You can use <code>8.8.8.8</code> (Google’s DNS) or something else. But, in my situation I am forced to use this DNS by my broadband provider and this will be automatically be forced in case you skip it. Upon successful connection, run <code>ifconfig</code> and you will observe a tunnel <code>dns0</code> is created.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">dns0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
           inet addr:10.0.0.2  P-t-P:10.0.0.2  Mask:255.255.255.224
