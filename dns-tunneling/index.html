@@ -146,7 +146,7 @@ From 103.206.248.193 <span class="nv">icmp_seq</span><span class="o">=</span><sp
 From 103.206.248.193 <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">3</span> Destination Net Prohibited</code></pre></div>
 
 <p>Here one thing you should notice that the reply 
-is from <code>103.206.248.193</code>. This is the <a href="https://en.wikipedia.org/wiki/Name_server">DNS Server</a> used by my broadband provider. I tried pinging the same but no avail. The DNS queries are <strong>fowarded</strong> by another <em>server</em>. Now I need to find this <em>mysterious server</em>. So, one this is sure for now, <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol">ICMP</a> packet transmission is not allowed. So, I cannot do ICMP tunneling.</p>
+is from <code>103.206.248.193</code>. This is the <a href="https://en.wikipedia.org/wiki/Name_server">DNS Server</a> used by my broadband provider. I tried pinging the same but no avail. The DNS queries are <strong>fowarded</strong> by another <em>server</em>. Now I need to find this <em>mysterious server</em>. So, one thing is sure for now, <a href="https://en.wikipedia.org/wiki/Internet_Control_Message_Protocol">ICMP</a> packet transmission is not allowed. So, I cannot do ICMP tunneling.</p>
 
 <p>I further tried resolving a domain name and it worked like charm. Note that <em>pinging</em> and <em>resolving</em> are not the same things !</p>
 
@@ -177,7 +177,7 @@ Starting arp-scan 1.8.1 with <span class="m">256</span> hosts <span class="o">(<
 <span class="m">1</span> packets received by filter, <span class="m">0</span> packets dropped by kernel
 Ending arp-scan 1.8.1: <span class="m">256</span> hosts scanned in 1.384 seconds <span class="o">(</span>184.97 hosts/sec<span class="o">)</span>. <span class="m">1</span> responded</code></pre></div>
 
-<p>You can see <code>192.168.2.66</code> is on the network and it’s the APC router(in your case this may be any other router) which is indicated by the manufacturer details. Just to make sure it is, I logged into its admin interface using the default credentials by checking the manufacturer website. As I said earlier they did a factory reset of the APC. In my case, as the manufacturer is <a href="http://deliberant.com">Deliberant</a> and the default credentials are known to be<code>admin:admin01</code>. And, the following confirms it:</p>
+<p>You can see <code>192.168.2.66</code> is on the network and it’s the APC router(in your case this may be any other router) which is indicated by the manufacturer details. Just to make sure it is, I logged into its admin interface using the default credentials by checking the manufacturer website. As I said earlier they did a factory reset of the APC. In my case, as the manufacturer is <a href="http://deliberant.com">Deliberant</a> and the default credentials are known to be <code>admin:admin01</code>. And, the following confirms it:</p>
 
 <p><img src="../img/dns-tunneling/deliberant_dns.png" alt="Deliberannt Router" />
 <br /></p>
@@ -226,7 +226,7 @@ What it means? If somebody query for <code>&lt;some-string&gt;.hack.black-perl.i
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>iodined -f -c -P pass -n &lt;server-ip&gt; 10.0.0.1 hack.black-perl.in</code></pre></div>
 
 <p>Pass in your server IP and subdomain created earlier.
-Here, <code>-f</code> makes the Iodine server daemon to run in foreground and  <code>-P</code> is used to provide a password string that the client is going to provide while connecting. <code>10.0.0.1</code> is the other end of the tunnel interface to be created. The client(our machine) will be having <code>10.0.0.2</code>.</p>
+Here, <code>-f</code> makes the Iodine server to run in foreground and  <code>-P</code> is used to provide a password string that the client is going to provide while connecting. <code>10.0.0.1</code> is the other end of the tunnel interface to be created. The client(our machine) will be having <code>10.0.0.2</code> as it’s IP Address.</p>
 
 <ul>
   <li>
@@ -240,7 +240,7 @@ Here, <code>-f</code> makes the Iodine server daemon to run in foreground and  <
    .  .
   Connection setup <span class="nb">complete</span>, transmitting data.</code></pre></div>
 
-<p>You can skip <code>192.168.2.66</code>(mysterious server we found before) from the above command. This is basically the DNS we are tunneling through. You can use <code>8.8.8.8</code> (Google’s DNS) or something else. But, in my situation I am forced to use this DNS by my broadband provider and this will be automatically forced in case you skip it. Upon successful connection, run <code>ifconfig</code> and you will observe a tunnel <code>dns0</code> is created.</p>
+<p>You can skip <code>192.168.2.66</code> (mysterious server we found before) from the above command. This is basically the DNS we are tunneling through. You can use <code>8.8.8.8</code> (Google’s DNS) or something else. But, in my situation I am forced to use this DNS by my broadband provider and this will be automatically forced in case you skip it. Upon successful connection, run <code>ifconfig</code> and you will observe a tunnel <code>dns0</code> is created.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">dns0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
           inet addr:10.0.0.2  P-t-P:10.0.0.2  Mask:255.255.255.224
@@ -254,9 +254,10 @@ Here, <code>-f</code> makes the Iodine server daemon to run in foreground and  <
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>ssh -D <span class="m">8080</span> user@10.0.0.1</code></pre></div>
 
-<p>Now, set the proxy to be <code>127.0.0.1</code> with port <code>8080</code> and type <code>Socks5</code> and viola ! you are done.</p>
+<p>The <code>user</code> refers to your <code>server user</code> and our server IP is aliased as <code>10.0.0.1</code> due to the establishment of <code>dns0</code> tunnel.
+Now, set the proxy to be <code>127.0.0.1</code> with port <code>8080</code> and type <code>Socks5</code> and viola ! you are done.</p>
 
-<p><strong>Note:</strong> The speed obtained is very less and this type of connections can mostly be used to open a SSH shell or browsing text based sites. I myself get around <code>5 KBps</code> speed and managed to open the <a href="http://geohot.com">website</a> of the IPhone jailbreak inventor guy George Hotz.</p>
+<p><strong>Note:</strong> The speed obtained is very less and this type of connections can mostly be used to open a SSH connection or browsing text based sites. I myself get around <code>5 KBps</code> speed and managed to open the <a href="http://geohot.com">website</a> of the IPhone jailbreak inventor guy George Hotz.</p>
 
 		
 	</div>
