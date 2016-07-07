@@ -240,7 +240,7 @@ Here, <code>-f</code> makes the Iodine server daemon to run in foreground and  <
    .  .
   Connection setup <span class="nb">complete</span>, transmitting data.</code></pre></div>
 
-<p>You can skip <code>192.168.2.66</code>(mysterious server we found before) from the above command. This is basically the DNS we are tunneling through. You can use <code>8.8.8.8</code> (Google’s DNS) or something else. But, in my situation I am forced to use this DNS by my broadband provider and this will be automatically be forced in case you skip it. Upon successful connection, run <code>ifconfig</code> and you will observe a tunnel <code>dns0</code> is created.</p>
+<p>You can skip <code>192.168.2.66</code>(mysterious server we found before) from the above command. This is basically the DNS we are tunneling through. You can use <code>8.8.8.8</code> (Google’s DNS) or something else. But, in my situation I am forced to use this DNS by my broadband provider and this will be automatically forced in case you skip it. Upon successful connection, run <code>ifconfig</code> and you will observe a tunnel <code>dns0</code> is created.</p>
 
 <div class="highlight"><pre><code class="language-bash" data-lang="bash">dns0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
           inet addr:10.0.0.2  P-t-P:10.0.0.2  Mask:255.255.255.224
