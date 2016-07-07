@@ -242,12 +242,12 @@ Here, <code>-f</code> makes the Iodine server to run in foreground and  <code>-P
 
 <p>You can skip <code>192.168.2.66</code> (mysterious server we found before) from the above command. This is basically the DNS we are tunneling through. You can use <code>8.8.8.8</code> (Google’s DNS) or something else. But, in my situation I am forced to use this DNS by my broadband provider and this will be automatically forced in case you skip it. Upon successful connection, run <code>ifconfig</code> and you will observe a tunnel <code>dns0</code> is created.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">dns0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00  
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">dns0      Link encap:UNSPEC  HWaddr 00-00-00-00-00-00-00-00-00-00-00-00-00-00-00-00
           inet addr:10.0.0.2  P-t-P:10.0.0.2  Mask:255.255.255.224
           UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:1130  Metric:1
           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0 txqueuelen:500 
+          collisions:0 txqueuelen:500
           RX bytes:0 <span class="o">(</span>0.0 B<span class="o">)</span>  TX bytes:0 <span class="o">(</span>0.0 B<span class="o">)</span></code></pre></div>
 
 <p>Now, let’s create a <a href="https://en.wikipedia.org/wiki/SOCKS">SOCKS</a> proxy for using this tunnel.</p>
@@ -257,7 +257,7 @@ Here, <code>-f</code> makes the Iodine server to run in foreground and  <code>-P
 <p>The <code>user</code> refers to your <code>server user</code> and our server IP is aliased as <code>10.0.0.1</code> due to the establishment of <code>dns0</code> tunnel.
 Now, set the proxy to be <code>127.0.0.1</code> with port <code>8080</code> and type <code>Socks5</code> and viola ! you are done.</p>
 
-<p><strong>Note:</strong> Some of the above commands are required to be run using <code>sudo</code> , i.e you require <strong>root</strong> privileges. I just omitted it just to keep things less verbose. The speed obtained is very less and this type of connections can mostly be used to open a SSH connection or browsing text based sites. I myself get around <code>5 KBps</code> speed and managed to open the <a href="http://geohot.com">website</a> of the IPhone jailbreak inventor guy George Hotz.</p>
+<p><strong>Note:</strong> Some of the above commands are required to be run using <code>sudo</code> , i.e you require <strong>root</strong> privileges. I omitted it to keep things less verbose. The speed obtained is very less and these type of connections can mostly be used to open a SSH connection or browsing text based sites. I myself get around <code>5 KBps</code> speed and managed to open the <a href="http://geohot.com">website</a> of the IPhone jailbreak inventor guy George Hotz.</p>
 
 		
 	</div>
