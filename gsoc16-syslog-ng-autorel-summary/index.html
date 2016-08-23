@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<!-- favicon -->
+	<link rel="shortcut icon" type="img/ico" href="../img/favicon.ico"/>
+	<!-- Feed link -->
+	<link href="/feed.xml/" rel='alternate' type='application/atom+xml'>
+	<!-- SEO tags -->
+	<meta name="description" content="Ankush-Sharma-blog">
+	<meta name="keywords" content="black-perl,Ankush-Sharma,IIT-BHU,GNU-Mailman,gsoc15,couting-infinities,black_perl">
+	<meta name="author" content="Ankush Sharma,IIT BHU,black-perl">
+	<!-- title -->
+	<title>Ankush Sharma | Counting infinities</title>
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,400italic|Signika:700,300,400,600' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+	  <a href="/ankush-sharma/">About Me</a>
+	  <a href="mailto:ankcodes@gmail.com">Contact</a>
+	  <a href="/tags/"> Tags </a>
+      <a href="/archives/"> Archives </a>
+	</div>
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a href="#" id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+	    <div id="header">
+	<a href="">
+		<img src="/img/humming-bird.png" alt="Ankush Sharma">
+	</a>
+    <h1> Counting infinities </h1>
+    <h3> 
+        <i id="tagline"> Thoughts of a random guy on life experiences, programming and music 
+        </i>
+    </h3>
+    <br/>
+    <!--   Social media icons --> 
+    <ul id="social-links">
+        <li>
+            <a href="https://www.facebook.com/ankcodes">
+                <img href="/img/social/social-1_round-facebook.svg" type="Facebook">
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/black-perl">
+                <img src="/img/social/social-1_round-github.svg" type="Github">
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/ankcodes">
+                <img src="/img/social/social-1_round-twitter.svg" type="Twitter">
+            </a>
+        </li>
+        <li>
+            <a href="https://in.linkedin.com/in/ankcodes">
+                <img src="/img/social/social-1_round-linkedin.svg" type="LinkedIn">
+            </a>
+        </li>
+        <li>
+            <a href="skype:ank_sharma_3?userinfo">
+                <img src="/img/social/social-1_round-skype.svg" type="skype">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.instagram.com/ankcodes/">
+                <img src="/img/social/social-1_round-instagram.svg" type="ankcodes">
+            </a>
+        </li>
+        <li>
+            <a href="https://www.youtube.com/channel/UCnZ7eXLX7zPFhbU7Cmzr6Uw">
+                <img src="/img/social/social-1_round-youtube.svg" type="Youtube">
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+    <!-- Main content -->
+	  <div id="container">
+
+	  	<div id="post-page">
+	<!-- Adding tags -->
+	<ul class="tags">
+		
+			<li>
+				<a href="/tags#gsoc" class="tag">gsoc</a>
+			</li>
+		
+			<li>
+				<a href="/tags#gsoc16" class="tag">gsoc16</a>
+			</li>
+		
+			<li>
+				<a href="/tags#syslog-ng" class="tag">syslog-ng</a>
+			</li>
+		
+			<li>
+				<a href="/tags#open-source" class="tag">open-source</a>
+			</li>
+		
+	</ul>
+	<h2>Syslog-ng release automation elements</h2>		
+	<span class="by-line">23 Aug 2016</span>
+	<div class="content">
+
+		<p><em>Controlling complexity is the essence of computer programming.
+(Brian Kernigan)</em></p>
+
+<p>Let me remind you, I have been working with <a href="https://syslog-ng.org/">Syslog-Ng</a> on their release automation project as part of <a href="https://summerofcode.withgoogle.com">GSoC’16</a>. You can get more information about the project by lurking over <a href="http://black-perl.in/black-perl-gsoc-with-syslog-ng/">here</a> I will try to summarize my experiences during GSoC’16 and the deliverables.</p>
+
+<h2 id="breaking-down-the-project">Breaking down the project</h2>
+<p>syslog-ng is hosted at <a href="https://github.com/balabit/syslog-ng">Github</a> and does releases using the <a href="https://github.com/blog/1547-release-your-software">Github Releases</a>. The underlying algorithm I used for the release automation follows:</p>
+
+<ul>
+  <li>
+    <p>Clone the repository and generate a <a href="https://changelog.com/">changelog</a> using a <strong>changelog generation algorithm</strong>. This is probably the toughest and most time consuming part.</p>
+  </li>
+  <li>
+    <p>Create a <code>release</code> branch from the <code>master</code> and add commits to the branch doing version increments.</p>
+  </li>
+  <li>
+    <p>syslog-ng has a rich set of dependencies and building of <code>distribution tarball</code> has to be done in a <a href="https://www.docker.com">docker</a> environment.</p>
+  </li>
+  <li>
+    <p>After generation of the distribution tarball; a <code>debian source package</code> is generated using the previously generated distribution tarball.</p>
+  </li>
+  <li>
+    <p>The debian source package is then uploaded to <a href="http://build.opensuse.org">OBS</a> for generating the debian packages for different linux distributions.</p>
+  </li>
+  <li>
+    <p>After successful generation of the distribution tarball, a release <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging">tag</a> is created and a <a href="https://github.com/balabit/syslog-ng/releases">release</a> is generated on Github using the previously generated release tag and generated changelog.</p>
+  </li>
+  <li>
+    <p>A <a href="https://help.github.com/articles/using-pull-requests/">pull request</a> is then sent to the <code>master</code> branch from the <code>release</code> branch and the release process is said to be complete.</p>
+  </li>
+</ul>
+
+<p>The Sequence Diagram describes the project structure:</p>
+
+<p><img src="../img/gsoc16/autorel.png" alt="syslog-ng-autorel-sequence-diagram" /></p>
+
+<h2 id="deliverables">Deliverables</h2>
+<p>I created <a href="https://github.com/black-perl/syslog-ng-autorel/tree/test">syslog-ng-autorel</a> for providing the above functionality. The <code>README.md</code> file has the usage instructions. Go! get your hands dirty with it <img class="emoji" title="smile" alt="smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/smile.png" height="20" width="20" align="absmiddle" /></p>
+
+<h2 id="challenges-and-roadblocks">Challenges and Roadblocks</h2>
+<p>I encountered lot of roadblocks during the project and some away from the computer world too. I suffered a full body infection that effected my senses. At one point, it became very difficult to cope with things and I was thinking to leave the project. Thanks to my awesome mentors, <a href="https://www.facebook.com/laszlo.budai.9822">Laszlo Budai</a> and <a href="https://www.facebook.com/MrAnno">Laszlo Varady</a>. They let me take some time off and were more than supportive.
+Coming back to the project, these are the roadblocks I would like to highlight:</p>
+
+<ul>
+  <li>
+    <h3 id="architecture">Architecture</h3>
+    <p>I was pretty fast at implementing things but I always have the habit of making a mess of the architecture. As they say, <em>Understand the underlying business logic and abstraction first and then start implementing</em>
+  <br />
+  <br />
+  Without digging into the architectural aspects, I preferred jumping directly into implementations. This technique has many pain points. As you get to understand the architectural aspects over time, your code suffers heavy refactoring. Moreover, your mentors need to step up into your code trying to figure out what’s going on. And then, Er? Eh! What? No.
+  <br />
+  <br />
+  We must understand that they don’t have all the time in the world and have full time jobs too. So, having a blue print before hand is crucial. It kicks the code refactoring aspect out of picture serving us students well and at the same time saves time of our mentors too.We can take the help of <a href="https://en.wikipedia.org/wiki/Sequence_diagram">Sequence Diagrams</a>, <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">UML Diagrams</a> etc. to communicate to mentors our ideas about architecture and at the same time take feedback. It’s a true <a href="https://en.wikipedia.org/wiki/Agile_software_development">Agile Software Development</a> process.
+<br />
+<br /></p>
+  </li>
+  <li>
+    <h3 id="solid-code">SOLID Code:</h3>
+    <p>I come from a scripting background with very less experience in professional coding experience in compiled languages. In my opinion, one should write some code in programming languages like <code>JAVA</code>, <code>C++</code> etc. because they are more structured and gives you required exposure to practice writing <a href="https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID</a> code. So, why SOLID ? SOLID principles let you mimic your architecture into implementation in a way that facilitates easy code refactoring, dependency changes in code etc. overtime. </p>
+  </li>
+</ul>
+
+<p>Here is the architectural design of my <a href="https://github.com/black-perl/syslog-ng-autorel/tree/test/autorel/changelog_generator">changelog_generator</a> module. And, it feels great when you implement it using the SOLID principles. Thanks, <a href="https://www.facebook.com/MrAnno">Laszlo Varady</a> for this.</p>
+
+<p><img src="https://camo.githubusercontent.com/65a35fd275d531e027cb6e4c49d5c74969187472/68747470733a2f2f646c2e64726f70626f7875736572636f6e74656e742e636f6d2f752f31363632363435382f4f2f6368616e67656c6f672e737667" alt="Changelog Generator" /></p>
+
+<ul>
+  <li>
+    <h3 id="changelog-generation">Changelog Generation:</h3>
+    <p>Changelog generation is the process of generating detailed log between two releases incorporating the <strong>merged pull requests</strong>, <strong>fixed issues</strong>, <strong>bugs</strong>, <strong>enhancements</strong> etc. Why changelog, go <a href="http://keepachangelog.com/en/0.3.0/">here</a>. We need a changelog now <img class="emoji" title="smile" alt="smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/smile.png" height="20" width="20" align="absmiddle" /> I used the following algorithm for generating the changelog:</p>
+    <ul>
+      <li>Find the list of commits between two releases.</li>
+      <li>syslog-ng enforces commit patterns. For eg.
+   <code>
+   Merge pull request #1159 from lbudai/f/fix-elastic-mod-http-slf4j
+  </code>
+   With the help of <a href="https://en.wikipedia.org/wiki/Regular_expression">regex</a> we can have the list of all <code>pull request ids</code>. 
+Similarly, I can find the list of <code>merged branches</code>.</li>
+      <li>Some of these <code>pull requests</code> may be linked to <code>fixed issues</code>.I used a Python client library <a href="https://github.com/PyGithub/PyGithub">Pygithub</a> for interacting with the <a href="https://developer.github.com/v3/">Github API</a>. So, the <code>linked issues</code> are found out.</li>
+      <li>For other issues we can parse the commit message:
+  <code>
+   Fixed #416 queue full message
+ </code></li>
+      <li>Classification of the issues is done into <code>bugs</code>, <code>enhancements</code> etc.</li>
+      <li>Finally we have four types of changelog entries:
+        <ul>
+          <li><code>Bugs</code> </li>
+          <li><code>Enhancements</code></li>
+          <li><code>Merged Pull</code> ( Pull request not linked to an issue or a local checkout )</li>
+          <li><code>Fixed Issue</code>( Uncategorized fixed issue )</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>Finally, a changelog is generated carrying the contributor info for each changelog entry. You can see the output of the tool <a href="https://gist.github.com/black-perl/3fc61c5034cf0b217d36b99c219ed710">here</a></p>
+  </li>
+  <li>
+    <h3 id="obs-upload">OBS upload</h3>
+    <p>I was using <code>Python3</code> for development of the project. One of the task was to upload the Debian source package to OBS as I mentioned earlier. I tried using <code>osc</code>[https://github.com/openSUSE/osc]. It’s own source code is return with backward compatibility and supports  <code>Python3</code> but one of the dependencies <code>m2crypto</code> is not Python3 compatible. This module is used to establish a SSL connection to OBS. So, I adopted a solution that involves spawning an independent <code>Python2</code> process for handling OBS upload.</p>
+  </li>
+</ul>
+
+<h2 id="learnings">Learnings</h2>
+<p>Apart from adding some cool tool-chains to my arsenal, I found developing a good relationship with my mentors as the best experience of the GSoC project. I wouldn’t have learned a single thing without their constant support. They are just awesome <img class="emoji" title="smile" alt="smile" src="https://github.global.ssl.fastly.net/images/icons/emoji/smile.png" height="20" width="20" align="absmiddle" /> Let’s get back to the new things I learned:
+- Controlling docker with Python
+- Practice of writing code with SOLID principles
+- Knowledge of Debian packaging
+- GIT internals and sound knowledge of Github
+- I think I got better at System design/architecture</p>
+
+<h2 id="future-work">Future Work</h2>
+<p>I am planning to work with syslog-ng in the coming months. The goal of the GSoC’16 project was to develop building blocks for the release pipeline of syslog-ng. Let’s see if I can integrate these modules into a release pipeline. Apart from it, I am planning to create a web interface to provide analytics for the project.</p>
+
+<p>Contributing to open source software is fun and it always will be. Keep digging and stay tuned !</p>
+
+<p><code>#happy_coding</code></p>
+
+		
+	</div>
+
+	<br/>
+
+	<p class = "share-page"> <b> Share this post: </b> </p>
+
+	<div class="share-page">
+	    <a href="https://twitter.com/intent/tweet?text=Syslog-ng release automation elements&url=http://black-perl.in/gsoc16-syslog-ng-autorel-summary&via=_imankush&related=_imankush" rel="nofollow" target="_blank" title="Share on Twitter">
+	    	<img class="share-buttons" src="/img/social/twitter_share.png" alt="twitter share button">
+	    </a>
+	    <a href="https://facebook.com/sharer.php?u=http://black-perl.in/gsoc16-syslog-ng-autorel-summary" rel="nofollow" target="_blank" title="Share on Facebook">
+	    	<img class="share-buttons" src="/img/social/facebook_share.png" alt="facebook share button">
+	    </a>
+	    <a href="https://plus.google.com/share?url=http://black-perl.in/gsoc16-syslog-ng-autorel-summary" rel="nofollow" target="_blank" title="Share on Google+">
+	    	<img class="share-buttons" src="/img/social/googleplus_share.png" alt="googleplus share button">
+	    </a>
+	</div>
+
+	<br/>
+	<!-- Comment thread -->
+	<div id="disqus_thread"></div>
+</div>
+
+
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>@2015-2016 - Ankush Sharma</span></footer>
+
+	    <!-- Script -->
+      <!-- Hightlight.js -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+<!-- Custom JS -->
+<script src="/js/main.js"></script> 
+
+
+      <script type="text/javascript">
+        // disqus comments
+        var disqus_shortname  = 'black-perl', // test-me-blog
+        disqus_identifier = '2016-08-23-gsoc16-syslog-ng-autorel-summary.md',
+        disqus_url        = 'http://black-perl.in/gsoc16-syslog-ng-autorel-summary'
+        ;
+        (function() {
+        var load = function(src){
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = src;
+        var e = document.getElementsByTagName('script')[0]; e.parentNode.insertBefore(s, e);
+        };
+        load('//' + disqus_shortname + '.disqus.com/count.js');
+        if (document.getElementById('disqus_thread')) {
+        load('//' + disqus_shortname + '.disqus.com/embed.js');
+        }
+        })();
+        // google analytics
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-62827211-1', 'auto');
+        ga('send', 'pageview');
+      </script>
+
+	</div>
+</body>
+</html>
