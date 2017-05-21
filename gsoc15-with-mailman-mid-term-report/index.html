@@ -119,23 +119,38 @@
 			</li>
 		
 	</ul>
-	<h2>It's gsoc'15 with GNU Mailman :-)</h2>		
-	<span class="by-line">29 Apr 2015</span>
+	<h2>GSoC'15 - GNU Mailman mid term report</h2>		
+	<span class="by-line">02 Jul 2015</span>
 	<div class="content">
 
-		<p>Ah ! there came the moment I have been waiting for the past two years. 
-The list of accepted projects got published on the <a href="https://www.google-melange.com/gsoc/projects/list/google/gsoc2015">Google Summer of Code</a> website. And, after two months of consistent hard work, I made it. I will be working with an open source organisation called as <a href="http://list.org">GNU Mailman</a>, which is a mailing list management software.</p>
+		<p>Tomorrow marks the mid of the GSoC’15 journey. The journey till now was full of roadblocks and surprises for me. At the same time, I learned about many asynchronous programming techniques while working with NodeJS and different testing strategies. It wouldn’t have been possible without my awesome mentors, <em>@florianf</em> and <em>@maxking</em>. 
+Here are the details of what I’ve achieved so far : </p>
 
-<p><img src="../img/gsoc2015.jpg" alt="GSOC'15-Ankush-Sharma" /></p>
+<h3 id="request-making-modules">Request making modules</h3>
+<p>These modules serve as the backbone to the project. They provide classes that are directly inherited by the classes in other modules and are responsible for providing an abstraction of connection to the mailman-core REST API server. At the same time these provide pleasant API to talk to the REST server. These modules have been fully tested and have gained more robustness over the time. </p>
 
-<p>Coming back to my project.  The Mailman project is primarily in <a href="https://www.python.org/">Python</a>. I will be going to port <a href="https://launchpad.net/mailman.client">mailman.client</a>, an existing <strong>Python REST client</strong> for communicating with <a href="https://launchpad.net/mailman">mailman-core</a> to a <a href="https://nodejs.org/">Node.js</a> package i.e a <a href="https://www.npmjs.com/">npm</a> package.
-More on this <a href="https://www.google-melange.com/gsoc/project/details/google/gsoc2015/black_perl/5634387206995968">here</a>.</p>
+<h3 id="other-modules">Other modules</h3>
+<p>Then I went on to implement classes analogous to <em>_Addresses</em>,  <em>_Address</em>,  <em>_Preferences</em>,  <em>_Settings</em>,  <em>_Member</em> and <em>_User</em> as in <a href="https://gitlab.com/mailman/mailmanclient">mailman.client</a>. These have been fully tested from the command line and working as expected. I implemented them in three phases:</p>
 
-<p>I will be blogging throughout the summers, as I keep on hacking with Mailman ;-) 
-Hang around !!</p>
+<ul>
+  <li>First I tried to cover the basic API they can offer. </li>
+  <li>Then, with discussion with mentors I decided what changes I can make to the public API to make it more user friendly. This required considerable changes to the implementation of the methods of the respective classes.</li>
+  <li>Finally, in the last phase I refactored the code so as to separate out the redundant logic in a bunch of utility functions and to provide a consistent usage API to developers and the end SDK users.</li>
+</ul>
 
-<p><code>#cheers</code>                                                 <br />
-<code>#summers_are_gonna_be_fun</code></p>
+<p><br /></p>
+
+<h3 id="current-work">Current Work</h3>
+<p>A bunch of above mentioned modules has been completely unit tested but due to recent code changes some of the tests are failing <img class="emoji" title="cold_sweat" alt="cold_sweat" src="https://github.global.ssl.fastly.net/images/icons/emoji/cold_sweat.png" height="20" width="20" align="absmiddle" />, so working on the testing part at current.</p>
+
+<h3 id="future-work">Future work</h3>
+<p>After finishing testing I will jump on to implement the left modules <em>List</em>, <em>Domain</em>, <em>Client</em> etc. After that, I will improve the code quality by using code linting and time profiling tools. And, yeah documentation !</p>
+
+<p>Here is the repository URL if you want to give it a shot:                                              <br />
+<strong>Repo URL</strong> : <a href="https://gitlab.com/black-perl/mailman-client.js">https://gitlab.com/black-perl/mailman-client.js</a></p>
+
+<p>Stay in touch !</p>
+
 
 		
 	</div>
@@ -145,13 +160,13 @@ Hang around !!</p>
 	<p class = "share-page"> <b> Share this post: </b> </p>
 
 	<div class="share-page">
-	    <a href="https://twitter.com/intent/tweet?text=It's gsoc'15 with GNU Mailman :-)&url=http://blog.darxtrix.in/mailman-gsoc-proposal-accepted&via=darxtrix&related=darxtrix" rel="nofollow" target="_blank" title="Share on Twitter">
+	    <a href="https://twitter.com/intent/tweet?text=GSoC'15 - GNU Mailman mid term report&url=http://blog.darxtrix.in/gsoc15-with-mailman-mid-term-report&via=darxtrix&related=darxtrix" rel="nofollow" target="_blank" title="Share on Twitter">
 	    	<img class="share-buttons" src="/img/social/twitter_share.png" alt="twitter share button">
 	    </a>
-	    <a href="https://facebook.com/sharer.php?u=http://blog.darxtrix.in/mailman-gsoc-proposal-accepted" rel="nofollow" target="_blank" title="Share on Facebook">
+	    <a href="https://facebook.com/sharer.php?u=http://blog.darxtrix.in/gsoc15-with-mailman-mid-term-report" rel="nofollow" target="_blank" title="Share on Facebook">
 	    	<img class="share-buttons" src="/img/social/facebook_share.png" alt="facebook share button">
 	    </a>
-	    <a href="https://plus.google.com/share?url=http://blog.darxtrix.in/mailman-gsoc-proposal-accepted" rel="nofollow" target="_blank" title="Share on Google+">
+	    <a href="https://plus.google.com/share?url=http://blog.darxtrix.in/gsoc15-with-mailman-mid-term-report" rel="nofollow" target="_blank" title="Share on Google+">
 	    	<img class="share-buttons" src="/img/social/googleplus_share.png" alt="googleplus share button">
 	    </a>
 	</div>
@@ -181,8 +196,8 @@ Hang around !!</p>
       <script type="text/javascript">
         // disqus comments
         var disqus_shortname  = 'darxtrix', // test-me-blog
-        disqus_identifier = '2015-04-29-mailman-gsoc-proposal-accepted.md',
-        disqus_url        = 'http://blog.darxtrix.in/mailman-gsoc-proposal-accepted'
+        disqus_identifier = '2015-07-02-gsoc15-with-mailman-mid-term-report.md',
+        disqus_url        = 'http://blog.darxtrix.in/gsoc15-with-mailman-mid-term-report'
         ;
         (function() {
         var load = function(src){

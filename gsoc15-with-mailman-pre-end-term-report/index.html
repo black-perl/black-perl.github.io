@@ -98,51 +98,72 @@
     <!-- Main content -->
 	  <div id="container">
 
-	  	<!-- Posts -->
-<ul id="posts">
+	  	<div id="post-page">
+	<!-- Adding tags -->
+	<ul class="tags">
+		
+			<li>
+				<a href="/tags#gsoc" class="tag">gsoc</a>
+			</li>
+		
+			<li>
+				<a href="/tags#gsoc15" class="tag">gsoc15</a>
+			</li>
+		
+			<li>
+				<a href="/tags#mailman" class="tag">mailman</a>
+			</li>
+		
+			<li>
+				<a href="/tags#open-source" class="tag">open-source</a>
+			</li>
+		
+	</ul>
+	<h2>GSoC'15 - GNU Mailman pre-end term report</h2>		
+	<span class="by-line">11 Aug 2015</span>
+	<div class="content">
+
+		<p>As we are reaching towards the end, the level of excitement is at all time high. Yeah, GSOC’15 program is in it’s last few days. Talking on the benefits side of this program, I found myself transformed from a JavaScript noob to a ninja :p</p>
+
+<p>Talking about the <a href="https://gitlab.com/black-perl/mailman-client.js">project</a>, the project is finally on the npm registry and can be found <a href="https://www.npmjs.com/package/mailman-client">here</a>. You can get your hands dirty over it and the <a href="https://gitlab.com/black-perl/mailman-client.js/issues">issue tracker</a> is always there if you find things breaking and are ready to help.</p>
+
+<p>I have invested a lot of time in writing tests, and here are the code coverage reports <a href="http://black-perl.in/mailman-cli/">http://black-perl.in/mailman-cli/</a>.</p>
+
+<p>An experimental version of the API documentation is up and running here : <a href="http://black-perl.in/mailman-client-docs/">http://black-perl.in/mailman-client-docs/</a>.</p>
+
+<p>To sum up, most of the implementation, testing and docs part is over. Currently working on better error propagation within the library and some minor features/patches. </p>
+
+<p>Bye for now, stay in touch. <img class="emoji" title="smiley" alt="smiley" src="https://github.global.ssl.fastly.net/images/icons/emoji/smiley.png" height="20" width="20" align="absmiddle" /></p>
 
 
-<!-- Post tagging -->
-    <ul class="tags">
-        
-    </ul>
-    <li class="post">
-    	<h2><a href="/hello-world">Hi there !!</a></h2>
-    	<span class="by-line">25 Mar 2015</span>
-    	<p>I had been thinking to put a blog up for the past few months but everytime I got stuck with...</p>
-    </li>
+		
+	</div>
 
+	<br/>
 
+	<p class = "share-page"> <b> Share this post: </b> </p>
 
-</ul>
+	<div class="share-page">
+	    <a href="https://twitter.com/intent/tweet?text=GSoC'15 - GNU Mailman pre-end term report&url=http://blog.darxtrix.in/gsoc15-with-mailman-pre-end-term-report&via=darxtrix&related=darxtrix" rel="nofollow" target="_blank" title="Share on Twitter">
+	    	<img class="share-buttons" src="/img/social/twitter_share.png" alt="twitter share button">
+	    </a>
+	    <a href="https://facebook.com/sharer.php?u=http://blog.darxtrix.in/gsoc15-with-mailman-pre-end-term-report" rel="nofollow" target="_blank" title="Share on Facebook">
+	    	<img class="share-buttons" src="/img/social/facebook_share.png" alt="facebook share button">
+	    </a>
+	    <a href="https://plus.google.com/share?url=http://blog.darxtrix.in/gsoc15-with-mailman-pre-end-term-report" rel="nofollow" target="_blank" title="Share on Google+">
+	    	<img class="share-buttons" src="/img/social/googleplus_share.png" alt="googleplus share button">
+	    </a>
+	</div>
+
+	<br/>
+	<!-- Comment thread -->
+	<div id="disqus_thread"></div>
+</div>
+
 
 		
 		  <!-- Pagination links -->
       
-        <div class="pagination">
-          
-            <a href="/page2/" class="page-item">&laquo;</a>
-          
-        
-          
-            
-              <a href="/" class="page-item">1</a>
-            
-          
-            
-              <a href="/page2/" class="page-item">2</a>
-            
-          
-            
-              <span class="page-item">3</span>
-            
-          
-        
-          
-            <span class="page-item">&raquo;</span>
-          
-        </div>
-        
 
 	  </div>
 	    
@@ -159,8 +180,8 @@
       <script type="text/javascript">
         // disqus comments
         var disqus_shortname  = 'darxtrix', // test-me-blog
-        disqus_identifier = 'index.html',
-        disqus_url        = 'http://blog.darxtrix.in/page3/index.html'
+        disqus_identifier = '2015-08-11-gsoc15-with-mailman-pre-end-term-report.md',
+        disqus_url        = 'http://blog.darxtrix.in/gsoc15-with-mailman-pre-end-term-report'
         ;
         (function() {
         var load = function(src){
